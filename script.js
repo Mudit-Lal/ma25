@@ -133,23 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Initialize scroll animations
+    // Initialize scroll animations (only for elements that already have fade-in class)
     initScrollAnimation();
-
-    // Add fade-in class to sections
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        section.classList.add('fade-in');
-    });
-
-    // Trigger initial check for visible sections
-    setTimeout(() => {
-        const fadeElements = document.querySelectorAll('.fade-in');
-        fadeElements.forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight) {
-                el.classList.add('visible');
-            }
-        });
-    }, 100);
 });
