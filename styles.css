@@ -277,6 +277,30 @@ h1, h2, h3 {
     padding: 4rem 2rem;
     text-align: center;
     box-shadow: var(--shadow-soft);
+    position: relative;
+}
+
+.photo-placeholder::before,
+.photo-placeholder::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-color: var(--gold);
+    border-style: solid;
+    opacity: 0.3;
+}
+
+.photo-placeholder::before {
+    top: 16px;
+    left: 16px;
+    border-width: 2px 0 0 2px;
+}
+
+.photo-placeholder::after {
+    bottom: 16px;
+    right: 16px;
+    border-width: 0 2px 2px 0;
 }
 
 .placeholder-icon {
@@ -314,6 +338,43 @@ h1, h2, h3 {
     text-align: center;
     margin-bottom: 2rem;
     border-top: 4px solid var(--gold);
+    position: relative;
+}
+
+/* Decorative corner flourishes for cards */
+.event-card::before,
+.event-card::after,
+.venue-card::before,
+.venue-card::after,
+.family-card::before,
+.family-card::after,
+.contact-card::before,
+.contact-card::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-color: var(--gold);
+    border-style: solid;
+    opacity: 0.4;
+}
+
+.event-card::before,
+.venue-card::before,
+.family-card::before,
+.contact-card::before {
+    top: 12px;
+    left: 12px;
+    border-width: 2px 0 0 2px;
+}
+
+.event-card::after,
+.venue-card::after,
+.family-card::after,
+.contact-card::after {
+    bottom: 12px;
+    right: 12px;
+    border-width: 0 2px 2px 0;
 }
 
 .event-date {
@@ -377,13 +438,25 @@ h1, h2, h3 {
 }
 
 .countdown-item {
-    background: white;
+    background: linear-gradient(180deg, white 0%, #fefdfb 100%);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-soft);
     padding: 1.25rem 1.5rem;
     min-width: 90px;
     text-align: center;
     border-bottom: 3px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--silver-light), transparent);
 }
 
 .countdown-value {
@@ -436,7 +509,27 @@ h1, h2, h3 {
     font-weight: 500;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.btn:active::after {
+    width: 200px;
+    height: 200px;
 }
 
 .btn svg {
@@ -507,6 +600,7 @@ h1, h2, h3 {
     padding: 2.5rem;
     text-align: center;
     border-top: 4px solid var(--gold);
+    position: relative;
 }
 
 .venue-name {
@@ -528,6 +622,19 @@ h1, h2, h3 {
     overflow: hidden;
     box-shadow: var(--shadow-soft);
     margin-bottom: 0.5rem;
+    border: 3px solid var(--silver-light);
+    position: relative;
+}
+
+.map-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-dark), var(--gold));
+    z-index: 1;
 }
 
 .map-container iframe {
@@ -547,6 +654,7 @@ h1, h2, h3 {
     padding: 2.5rem;
     text-align: center;
     border-top: 4px solid var(--gold);
+    position: relative;
 }
 
 .sons .label {
@@ -595,6 +703,7 @@ h1, h2, h3 {
     padding: 2.5rem;
     text-align: center;
     border-top: 4px solid var(--gold);
+    position: relative;
 }
 
 .contact-intro {
@@ -627,9 +736,20 @@ h1, h2, h3 {
 /* ===== Footer ===== */
 .footer {
     padding: 3rem 0 2rem;
-    background: var(--maroon-dark);
+    background: linear-gradient(180deg, var(--maroon-dark) 0%, #4a1c22 100%);
     color: var(--warm-white);
     text-align: center;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
 .footer-content {
@@ -792,6 +912,28 @@ h1, h2, h3 {
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
+/* Subtle decorative circles in corners */
+.language-overlay::before,
+.language-overlay::after {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    opacity: 0.15;
+}
+
+.language-overlay::before {
+    top: -80px;
+    left: -80px;
+}
+
+.language-overlay::after {
+    bottom: -80px;
+    right: -80px;
+}
+
 .language-overlay.hidden {
     opacity: 0;
     visibility: hidden;
@@ -800,8 +942,15 @@ h1, h2, h3 {
 
 .language-content {
     text-align: center;
-    padding: 2rem;
+    padding: 2.5rem;
     max-width: 500px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    position: relative;
 }
 
 .language-shloka {
@@ -843,17 +992,35 @@ h1, h2, h3 {
 .btn-language {
     background: white;
     border: 2px solid var(--gold);
-    border-radius: var(--border-radius);
-    padding: 1.25rem 2.5rem;
+    border-radius: 12px;
+    padding: 1.25rem 3rem;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: var(--shadow-soft);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-language::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-language:hover::before {
+    left: 100%;
 }
 
 .btn-language:hover {
     background: var(--gold);
     transform: translateY(-3px);
     box-shadow: var(--shadow-medium);
+    border-color: var(--gold-dark);
 }
 
 .btn-language:hover .lang-label {
