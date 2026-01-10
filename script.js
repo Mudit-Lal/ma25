@@ -91,9 +91,9 @@ function downloadICS() {
     URL.revokeObjectURL(url);
 }
 
-// ===== Scroll Animation =====
-function initScrollAnimation() {
-    const fadeElements = document.querySelectorAll('.fade-in');
+// ===== Scroll Reveal Animation =====
+function initScrollReveal() {
+    const revealElements = document.querySelectorAll('.scroll-reveal');
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -103,11 +103,11 @@ function initScrollAnimation() {
             }
         });
     }, {
-        threshold: 0.1,
+        threshold: 0.15,
         rootMargin: '0px 0px -50px 0px'
     });
 
-    fadeElements.forEach(el => observer.observe(el));
+    revealElements.forEach(el => observer.observe(el));
 }
 
 // ===== Initialize =====
@@ -133,6 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Initialize scroll animations (only for elements that already have fade-in class)
-    initScrollAnimation();
+    // Initialize scroll reveal animations
+    initScrollReveal();
 });

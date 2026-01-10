@@ -10,8 +10,8 @@
     --warm-white: #FFFAF0;
     --text-dark: #2C1810;
 
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-body: 'Cormorant Garamond', Georgia, serif;
+    --font-display: 'Cinzel', Georgia, serif;
+    --font-body: 'Raleway', 'Segoe UI', sans-serif;
     --font-hindi: 'Noto Sans Devanagari', sans-serif;
 
     --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -131,18 +131,37 @@ h1, h2, h3 {
 .hero-content {
     text-align: center;
     max-width: 700px;
-    animation: fadeInUp 1s ease-out;
+}
+
+/* Staggered fade-in animation */
+.anim-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: var(--delay, 0s);
 }
 
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Scroll reveal animation */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .shloka {
@@ -165,19 +184,22 @@ h1, h2, h3 {
     line-height: 1.8;
 }
 
-.blessing {
-    font-size: 1.1rem;
-    font-style: italic;
-    color: var(--maroon);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 0.5rem;
+.hero-text {
+    margin-bottom: 1rem;
 }
 
 .invite-text {
     font-size: 1.1rem;
     color: var(--text-dark);
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.hero-note {
+    font-size: 1.1rem;
+    color: var(--maroon);
+    font-weight: 500;
+    margin-top: 0.5rem;
 }
 
 .anniversary-title {
@@ -379,6 +401,8 @@ h1, h2, h3 {
     background: var(--cream);
     border-color: var(--gold);
     color: var(--gold-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
 }
 
 .btn-directions {
@@ -402,6 +426,8 @@ h1, h2, h3 {
 
 .btn-call:hover {
     background: var(--maroon-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
 }
 
 .btn-whatsapp {
@@ -412,6 +438,8 @@ h1, h2, h3 {
 
 .btn-whatsapp:hover {
     background: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
 }
 
 /* ===== Venue Section ===== */
@@ -488,10 +516,18 @@ h1, h2, h3 {
     margin-top: 1rem;
 }
 
+.wishes-intro {
+    font-size: 0.9rem;
+    color: var(--maroon);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
 .wishes-list {
     font-size: 1rem;
     color: var(--text-dark);
-    line-height: 2;
+    line-height: 1.8;
 }
 
 /* ===== Contact Section ===== */
@@ -507,6 +543,12 @@ h1, h2, h3 {
     padding: 2.5rem;
     text-align: center;
     border-top: 4px solid var(--gold);
+}
+
+.contact-intro {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
 }
 
 .contact-name {
@@ -671,14 +713,12 @@ h1, h2, h3 {
     }
 }
 
-/* ===== Animation on Scroll ===== */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+/* ===== Ornament Shimmer ===== */
+@keyframes shimmer {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
 }
 
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+.ornament {
+    animation: shimmer 3s ease-in-out infinite;
 }

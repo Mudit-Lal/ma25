@@ -12,10 +12,10 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mudit-lal.github.io/ma25/">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts - Cinzel (royal serif) + Raleway (clean sans) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
@@ -24,33 +24,35 @@
     <!-- Hero Section -->
     <header class="hero">
         <div class="hero-content">
-            <div class="shloka">
+            <div class="shloka anim-fade" style="--delay: 0s">
                 <p class="sanskrit">॥ श्री गणेशाय नमः ॥</p>
                 <p class="mantra">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः।<br>निर्विघ्नं कुरु मे देव सर्व कार्येषु सर्वदा॥</p>
             </div>
 
-            <div class="ornament"></div>
+            <div class="ornament anim-fade" style="--delay: 0.2s"></div>
 
-            <p class="blessing">With the blessings of our parents</p>
-            <p class="invite-text">We would like to cordially invite you to celebrate with us, the</p>
+            <div class="hero-text anim-fade" style="--delay: 0.4s">
+                <p class="invite-text">You're invited to celebrate</p>
+                <h2 class="anniversary-title">25 Years Together</h2>
+                <p class="subtitle">Silver Jubilee</p>
+            </div>
 
-            <h2 class="anniversary-title">25<sup>th</sup> Wedding Anniversary</h2>
-            <p class="subtitle">Silver Jubilee</p>
-
-            <h1 class="couple-names">
+            <h1 class="couple-names anim-fade" style="--delay: 0.6s">
                 <span class="name">Manoj</span>
                 <span class="ampersand">&</span>
                 <span class="name">Shalini</span>
             </h1>
 
-            <div class="ornament"></div>
+            <div class="ornament anim-fade" style="--delay: 0.8s"></div>
+
+            <p class="hero-note anim-fade" style="--delay: 1s">We'd love for you to join us</p>
         </div>
     </header>
 
     <!-- Photos Section -->
-    <section class="photos-section" id="photos">
+    <section class="photos-section scroll-reveal" id="photos">
         <div class="container">
-            <h2 class="section-title">Our Journey Together</h2>
+            <h2 class="section-title">Our Story</h2>
             <div class="photo-placeholder">
                 <p>Photos coming soon</p>
             </div>
@@ -58,9 +60,9 @@
     </section>
 
     <!-- Event Details Section -->
-    <section class="event-section" id="event">
+    <section class="event-section scroll-reveal" id="event">
         <div class="container">
-            <h2 class="section-title">Anniversary Celebration</h2>
+            <h2 class="section-title">When & Where</h2>
 
             <div class="event-card">
                 <div class="event-date">
@@ -96,7 +98,7 @@
 
             <!-- Calendar Buttons -->
             <div class="calendar-buttons">
-                <p class="calendar-text">Save the Date</p>
+                <p class="calendar-text">Add to your calendar</p>
                 <div class="button-group">
                     <a href="#" id="google-calendar" class="btn btn-calendar">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg>
@@ -112,9 +114,9 @@
     </section>
 
     <!-- Venue Section -->
-    <section class="venue-section" id="venue">
+    <section class="venue-section scroll-reveal" id="venue">
         <div class="container">
-            <h2 class="section-title">Venue</h2>
+            <h2 class="section-title">The Venue</h2>
 
             <div class="venue-card">
                 <h3 class="venue-name">Hotel Holiday Inn</h3>
@@ -145,26 +147,22 @@
     </section>
 
     <!-- Family Section -->
-    <section class="family-section" id="family">
+    <section class="family-section scroll-reveal" id="family">
         <div class="container">
-            <h2 class="section-title">With Best Wishes From</h2>
+            <h2 class="section-title">Our Family</h2>
 
             <div class="family-card">
                 <div class="sons">
-                    <p class="label">And Their Sons</p>
+                    <p class="label">Their Sons</p>
                     <p class="names">Mudit Lal & Vidit Lal</p>
                 </div>
 
                 <div class="ornament-small"></div>
 
                 <div class="well-wishers">
+                    <p class="wishes-intro">With warm wishes from</p>
                     <p class="wishes-list">
-                        Swatantra Bala, Anil Srivastava,<br>
-                        Vishwanath Srivastava, Saloni Srivastava,<br>
-                        Anupama Srivastava, Sachin Srivastava,<br>
-                        Aayush Srivastava, Virat Srivastava,<br>
-                        Hardik Srivastava, Gunav Ray,<br>
-                        Raghav Ray, Relatives & Friends
+                        Swatantra Bala, Anil Srivastava, Vishwanath Srivastava, Saloni Srivastava, Anupama Srivastava, Sachin Srivastava, Aayush Srivastava, Virat Srivastava, Hardik Srivastava, Gunav Ray, Raghav Ray & all relatives and friends
                     </p>
                 </div>
             </div>
@@ -172,11 +170,12 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact-section" id="contact">
+    <section class="contact-section scroll-reveal" id="contact">
         <div class="container">
-            <h2 class="section-title">Contact Us</h2>
+            <h2 class="section-title">Questions?</h2>
 
             <div class="contact-card">
+                <p class="contact-intro">Reach out to</p>
                 <p class="contact-name">Mudit Lal</p>
                 <p class="contact-number">+91 9129160070</p>
 
