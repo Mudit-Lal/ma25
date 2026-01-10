@@ -15,24 +15,24 @@ function initFireworks() {
 
     const fireworks = new Fireworks.default(container, {
         autoresize: true,
-        opacity: 0.5,
+        opacity: 0.4,
         acceleration: 1.02,
         friction: 0.97,
         gravity: 1.5,
-        particles: 80,
+        particles: 60,
         traceLength: 3,
-        traceSpeed: 10,
-        explosion: 5,
-        intensity: 15,
-        flickering: 50,
+        traceSpeed: 8,
+        explosion: 4,
+        intensity: 12,
+        flickering: 30,
         lineStyle: 'round',
         hue: {
-            min: 35,  // Gold tones
-            max: 55
+            min: 0,    // Full color range for variety
+            max: 360
         },
         delay: {
-            min: 30,
-            max: 60
+            min: 40,
+            max: 80
         },
         rocketsPoint: {
             min: 30,
@@ -41,35 +41,41 @@ function initFireworks() {
         lineWidth: {
             explosion: {
                 min: 1,
-                max: 3
+                max: 2
             },
             trace: {
-                min: 1,
-                max: 2
+                min: 0.5,
+                max: 1.5
             }
         },
         brightness: {
-            min: 50,
-            max: 80
+            min: 70,   // Higher brightness for pastel look
+            max: 90
         },
         decay: {
-            min: 0.015,
-            max: 0.03
+            min: 0.012,
+            max: 0.025
         },
         mouse: {
             click: false,
             move: false,
             max: 1
+        },
+        // Soft pastel saturation
+        saturation: {
+            min: 30,
+            max: 50
         }
     });
 
     fireworks.start();
 
-    // Reduce intensity after initial burst
+    // Soften further after initial burst
     setTimeout(() => {
         fireworks.updateOptions({
-            intensity: 8,
-            delay: { min: 50, max: 100 }
+            intensity: 6,
+            opacity: 0.3,
+            delay: { min: 60, max: 120 }
         });
     }, 5000);
 }
