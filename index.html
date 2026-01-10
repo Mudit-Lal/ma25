@@ -26,6 +26,30 @@
     <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
 </head>
 <body>
+    <!-- Language Toggle Button (shown after selection) -->
+    <button id="language-toggle" class="language-toggle" style="display: none;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+        <span id="toggle-label">हिंदी</span>
+    </button>
+
+    <!-- Language Selection Overlay -->
+    <div id="language-overlay" class="language-overlay">
+        <div class="language-content">
+            <div class="language-shloka">॥ श्री गणेशाय नमः ॥</div>
+            <div class="language-ornament"></div>
+            <h2 class="language-title">Welcome | स्वागत है</h2>
+            <p class="language-subtitle">Please select your preferred language<br>कृपया अपनी भाषा चुनें</p>
+            <div class="language-buttons">
+                <button class="btn-language" data-lang="en">
+                    <span class="lang-label">English</span>
+                </button>
+                <button class="btn-language" data-lang="hi">
+                    <span class="lang-label">हिंदी</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <header class="hero">
         <!-- Fireworks canvas -->
@@ -34,15 +58,15 @@
         <div class="hero-content">
             <div class="shloka gsap-fade">
                 <p class="sanskrit">॥ श्री गणेशाय नमः ॥</p>
-                <p class="mantra">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः।<br>निर्विघ्नं कुरु मे देव सर्व कार्येषु सर्वदा॥</p>
+                <p class="mantra">॥ जय बाबा नीम करौली ॥</p>
             </div>
 
             <div class="ornament gsap-fade"></div>
 
             <div class="hero-text gsap-fade">
-                <p class="invite-text">You're invited to celebrate</p>
-                <h2 class="anniversary-title gsap-title">25 Years Together</h2>
-                <p class="subtitle">Silver Jubilee</p>
+                <p class="invite-text" data-i18n="inviteText">You're invited to celebrate</p>
+                <h2 class="anniversary-title gsap-title" data-i18n="anniversaryTitle">25 Years Together</h2>
+                <p class="subtitle" data-i18n="subtitle">Silver Jubilee</p>
             </div>
 
             <h1 class="couple-names gsap-names">
@@ -53,16 +77,16 @@
 
             <div class="ornament gsap-fade"></div>
 
-            <p class="hero-note gsap-fade">We'd love for you to join us</p>
+            <p class="hero-note gsap-fade" data-i18n="heroNote">We'd love for you to join us</p>
         </div>
     </header>
 
     <!-- Photos Section -->
     <section class="photos-section scroll-reveal" id="photos">
         <div class="container">
-            <h2 class="section-title">Our Story</h2>
+            <h2 class="section-title" data-i18n="ourStory">Our Story</h2>
             <div class="photo-placeholder">
-                <p>Photos coming soon</p>
+                <p data-i18n="photosComingSoon">Photos coming soon</p>
             </div>
         </div>
     </section>
@@ -70,13 +94,13 @@
     <!-- Event Details Section -->
     <section class="event-section scroll-reveal" id="event">
         <div class="container">
-            <h2 class="section-title">When & Where</h2>
+            <h2 class="section-title" data-i18n="whenWhere">When & Where</h2>
 
             <div class="event-card">
                 <div class="event-date">
-                    <span class="day">Wednesday</span>
+                    <span class="day" data-i18n="dayWednesday">Wednesday</span>
                     <span class="date-number">28</span>
-                    <span class="month-year">January 2026</span>
+                    <span class="month-year" data-i18n="monthYear">January 2026</span>
                 </div>
                 <div class="event-time">
                     <span class="time">7:00 PM</span>
@@ -88,33 +112,33 @@
             <div class="countdown" id="countdown">
                 <div class="countdown-item">
                     <span class="countdown-value" id="days">00</span>
-                    <span class="countdown-label">Days</span>
+                    <span class="countdown-label" data-i18n="days">Days</span>
                 </div>
                 <div class="countdown-item">
                     <span class="countdown-value" id="hours">00</span>
-                    <span class="countdown-label">Hours</span>
+                    <span class="countdown-label" data-i18n="hours">Hours</span>
                 </div>
                 <div class="countdown-item">
                     <span class="countdown-value" id="minutes">00</span>
-                    <span class="countdown-label">Minutes</span>
+                    <span class="countdown-label" data-i18n="minutes">Minutes</span>
                 </div>
                 <div class="countdown-item">
                     <span class="countdown-value" id="seconds">00</span>
-                    <span class="countdown-label">Seconds</span>
+                    <span class="countdown-label" data-i18n="seconds">Seconds</span>
                 </div>
             </div>
 
             <!-- Calendar Buttons -->
             <div class="calendar-buttons">
-                <p class="calendar-text">Add to your calendar</p>
+                <p class="calendar-text" data-i18n="addToCalendar">Add to your calendar</p>
                 <div class="button-group">
                     <a href="#" id="google-calendar" class="btn btn-calendar">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg>
-                        Google Calendar
+                        <span data-i18n="googleCalendar">Google Calendar</span>
                     </a>
                     <a href="#" id="ics-download" class="btn btn-calendar">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                        Download .ics
+                        <span data-i18n="downloadIcs">Download .ics</span>
                     </a>
                 </div>
             </div>
@@ -124,11 +148,11 @@
     <!-- Venue Section -->
     <section class="venue-section scroll-reveal" id="venue">
         <div class="container">
-            <h2 class="section-title">The Venue</h2>
+            <h2 class="section-title" data-i18n="theVenue">The Venue</h2>
 
             <div class="venue-card">
-                <h3 class="venue-name">Hotel Holiday Inn</h3>
-                <p class="venue-address">
+                <h3 class="venue-name" data-i18n="hotelName">Hotel Holiday Inn</h3>
+                <p class="venue-address" data-i18n-html="venueAddress">
                     Near Transport Nagar Metro Station<br>
                     & Amausi Airport, Kanpur Road,<br>
                     Lucknow, Uttar Pradesh, Bharat - 226008
@@ -148,7 +172,7 @@
 
                 <a href="https://maps.app.goo.gl/LsvJhmVDE4RdnAhK6" target="_blank" rel="noopener noreferrer" class="btn btn-directions">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21.71 11.29l-9-9a.996.996 0 0 0-1.41 0l-9 9a.996.996 0 0 0 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9a.996.996 0 0 0 0-1.41zM14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z"/></svg>
-                    Get Directions
+                    <span data-i18n="getDirections">Get Directions</span>
                 </a>
             </div>
         </div>
@@ -157,19 +181,19 @@
     <!-- Family Section -->
     <section class="family-section scroll-reveal" id="family">
         <div class="container">
-            <h2 class="section-title">Our Family</h2>
+            <h2 class="section-title" data-i18n="ourFamily">Our Family</h2>
 
             <div class="family-card">
                 <div class="sons">
-                    <p class="label">Their Sons</p>
+                    <p class="label" data-i18n="theirSons">Their Sons</p>
                     <p class="names">Mudit Lal & Vidit Lal</p>
                 </div>
 
                 <div class="ornament-small"></div>
 
                 <div class="well-wishers">
-                    <p class="wishes-intro">With warm wishes from</p>
-                    <p class="wishes-list">
+                    <p class="wishes-intro" data-i18n="warmWishesFrom">With warm wishes from</p>
+                    <p class="wishes-list" data-i18n="wishesList">
                         Swatantra Bala, Anil Srivastava, Vishwanath Srivastava, Saloni Srivastava, Anupama Srivastava, Sachin Srivastava, Aayush Srivastava, Virat Srivastava, Hardik Srivastava, Gunav Ray, Raghav Ray & all relatives and friends
                     </p>
                 </div>
@@ -180,22 +204,45 @@
     <!-- Contact Section -->
     <section class="contact-section scroll-reveal" id="contact">
         <div class="container">
-            <h2 class="section-title">Questions?</h2>
+            <h2 class="section-title" data-i18n="questions">Questions?</h2>
 
             <div class="contact-card">
-                <p class="contact-intro">Reach out to</p>
-                <p class="contact-name">Mudit Lal</p>
-                <p class="contact-number">+91 9129160070</p>
+                <p class="contact-intro" data-i18n="reachOutTo">Reach out to</p>
 
-                <div class="contact-buttons">
-                    <a href="tel:+919129160070" class="btn btn-call">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                        Call
-                    </a>
-                    <a href="https://wa.me/919129160070?text=Hi%20Mudit%2C%20I%20received%20the%20invitation%20for%20the%2025th%20Anniversary%20celebration!" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                        WhatsApp
-                    </a>
+                <div class="contacts-grid">
+                    <!-- Manoj Lal -->
+                    <div class="contact-person">
+                        <p class="contact-name">Manoj Lal</p>
+                        <p class="contact-number">+91 94150 66383</p>
+                        <div class="contact-buttons">
+                            <a href="tel:+919415066383" class="btn btn-call">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                                <span data-i18n="call">Call</span>
+                            </a>
+                            <a href="https://wa.me/919415066383?text=Hi%2C%20I%20received%20the%20invitation%20for%20the%2025th%20Anniversary%20celebration!" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                WhatsApp
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-divider"></div>
+
+                    <!-- Mudit Lal -->
+                    <div class="contact-person">
+                        <p class="contact-name">Mudit Lal</p>
+                        <p class="contact-number">+91 91291 60070</p>
+                        <div class="contact-buttons">
+                            <a href="tel:+919129160070" class="btn btn-call">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                                <span data-i18n="call">Call</span>
+                            </a>
+                            <a href="https://wa.me/919129160070?text=Hi%20Mudit%2C%20I%20received%20the%20invitation%20for%20the%2025th%20Anniversary%20celebration!" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                WhatsApp
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -205,13 +252,13 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p class="footer-names">Manoj & Shalini</p>
-                <p class="footer-event">25th Wedding Anniversary | Silver Jubilee</p>
-                <p class="footer-date">28th January 2026 | 7:00 PM IST</p>
-                <p class="footer-venue">Hotel Holiday Inn, Lucknow</p>
+                <p class="footer-names">Manoj Lal & Shalini Srivastava</p>
+                <p class="footer-event" data-i18n="footerEvent">25th Wedding Anniversary | Silver Jubilee</p>
+                <p class="footer-date" data-i18n="footerDate">28th January 2026 | 7:00 PM IST</p>
+                <p class="footer-venue" data-i18n="footerVenue">Hotel Holiday Inn, Lucknow</p>
             </div>
             <div class="ornament-small"></div>
-            <p class="copyright">Made with love by the family</p>
+            <p class="copyright" data-i18n="madeWithLove">Made with love by the family</p>
         </div>
     </footer>
 
