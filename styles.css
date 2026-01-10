@@ -271,12 +271,32 @@ h1, h2, h3 {
 }
 
 .photo-placeholder {
-    background: var(--cream);
-    border: 2px dashed var(--silver);
+    background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%);
+    border: 2px solid var(--silver-light);
     border-radius: var(--border-radius);
     padding: 4rem 2rem;
     text-align: center;
-    color: var(--silver);
+    box-shadow: var(--shadow-soft);
+}
+
+.placeholder-icon {
+    color: var(--gold);
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.placeholder-title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--maroon);
+    margin-bottom: 0.5rem;
+    font-style: normal;
+}
+
+.placeholder-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    opacity: 0.6;
     font-style: italic;
 }
 
@@ -338,6 +358,16 @@ h1, h2, h3 {
 }
 
 /* ===== Countdown ===== */
+.countdown-intro {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--maroon);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
 .countdown {
     display: flex;
     justify-content: center;
@@ -568,9 +598,10 @@ h1, h2, h3 {
 }
 
 .contact-intro {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--text-dark);
-    margin-bottom: 0.25rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
 }
 
 .contact-name {
