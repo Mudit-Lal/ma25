@@ -8,181 +8,136 @@ const EVENT_CONFIG = {
     description: 'Silver Jubilee Celebration - 25th Wedding Anniversary of Manoj & Shalini. Join us for this special occasion!'
 };
 
-// ===== Floating Particles System =====
-class ParticleSystem {
-    constructor(canvasId) {
-        this.canvas = document.getElementById(canvasId);
-        if (!this.canvas) return;
+// ===== Elegant Fireworks =====
+function initFireworks() {
+    const container = document.getElementById('fireworks-container');
+    if (!container || typeof Fireworks === 'undefined') return;
 
-        this.ctx = this.canvas.getContext('2d');
-        this.particles = [];
-        this.particleCount = 50;
-        this.colors = ['#D4AF37', '#C0C0C0', '#B8960C', '#E8E8E8']; // Gold & Silver
-
-        this.resize();
-        this.init();
-        this.animate();
-
-        window.addEventListener('resize', () => this.resize());
-    }
-
-    resize() {
-        this.canvas.width = this.canvas.parentElement.offsetWidth;
-        this.canvas.height = this.canvas.parentElement.offsetHeight;
-    }
-
-    init() {
-        this.particles = [];
-        for (let i = 0; i < this.particleCount; i++) {
-            this.particles.push({
-                x: Math.random() * this.canvas.width,
-                y: Math.random() * this.canvas.height,
-                size: Math.random() * 4 + 1,
-                speedX: (Math.random() - 0.5) * 0.5,
-                speedY: (Math.random() - 0.5) * 0.5 - 0.3, // Slight upward drift
-                color: this.colors[Math.floor(Math.random() * this.colors.length)],
-                opacity: Math.random() * 0.6 + 0.2,
-                pulse: Math.random() * Math.PI * 2,
-                pulseSpeed: Math.random() * 0.02 + 0.01
-            });
+    const fireworks = new Fireworks.default(container, {
+        autoresize: true,
+        opacity: 0.5,
+        acceleration: 1.02,
+        friction: 0.97,
+        gravity: 1.5,
+        particles: 80,
+        traceLength: 3,
+        traceSpeed: 10,
+        explosion: 5,
+        intensity: 15,
+        flickering: 50,
+        lineStyle: 'round',
+        hue: {
+            min: 35,  // Gold tones
+            max: 55
+        },
+        delay: {
+            min: 30,
+            max: 60
+        },
+        rocketsPoint: {
+            min: 30,
+            max: 70
+        },
+        lineWidth: {
+            explosion: {
+                min: 1,
+                max: 3
+            },
+            trace: {
+                min: 1,
+                max: 2
+            }
+        },
+        brightness: {
+            min: 50,
+            max: 80
+        },
+        decay: {
+            min: 0.015,
+            max: 0.03
+        },
+        mouse: {
+            click: false,
+            move: false,
+            max: 1
         }
-    }
+    });
 
-    animate() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    fireworks.start();
 
-        this.particles.forEach(p => {
-            // Update position
-            p.x += p.speedX;
-            p.y += p.speedY;
-            p.pulse += p.pulseSpeed;
-
-            // Wrap around edges
-            if (p.x < 0) p.x = this.canvas.width;
-            if (p.x > this.canvas.width) p.x = 0;
-            if (p.y < 0) p.y = this.canvas.height;
-            if (p.y > this.canvas.height) p.y = 0;
-
-            // Pulsing opacity
-            const pulseOpacity = p.opacity * (0.7 + Math.sin(p.pulse) * 0.3);
-
-            // Draw particle with glow
-            this.ctx.save();
-            this.ctx.globalAlpha = pulseOpacity;
-
-            // Glow effect
-            this.ctx.shadowBlur = 15;
-            this.ctx.shadowColor = p.color;
-
-            // Draw circle
-            this.ctx.beginPath();
-            this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            this.ctx.fillStyle = p.color;
-            this.ctx.fill();
-
-            this.ctx.restore();
+    // Reduce intensity after initial burst
+    setTimeout(() => {
+        fireworks.updateOptions({
+            intensity: 8,
+            delay: { min: 50, max: 100 }
         });
-
-        requestAnimationFrame(() => this.animate());
-    }
+    }, 5000);
 }
 
-// ===== GSAP Hero Animations =====
+// ===== Elegant GSAP Hero Animations =====
 function initHeroAnimations() {
-    // Create main timeline
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    const tl = gsap.timeline({
+        defaults: {
+            ease: 'power2.out',
+            duration: 1
+        }
+    });
 
-    // Set initial states
-    gsap.set('.gsap-fade', { opacity: 0, y: 30 });
+    // Set initial states - everything hidden
+    gsap.set('.gsap-fade', { opacity: 0, y: 25 });
     gsap.set('.gsap-names', { opacity: 1 });
-    gsap.set('.gsap-names .name', { opacity: 0, y: 50, scale: 0.9 });
-    gsap.set('.gsap-names .ampersand', { opacity: 0, scale: 0, rotation: -180 });
-    gsap.set('.gsap-title', { opacity: 0, scale: 0.8, letterSpacing: '15px' });
+    gsap.set('.gsap-names .name', { opacity: 0, y: 30 });
+    gsap.set('.gsap-names .ampersand', { opacity: 0, scale: 0.5 });
+    gsap.set('.gsap-title', { opacity: 0, y: 20 });
 
-    // Shloka fade in
+    // Elegant staggered reveal
     tl.to('.shloka.gsap-fade', {
         opacity: 1,
         y: 0,
-        duration: 1,
-        delay: 0.3
+        duration: 1.2,
+        delay: 0.5
     })
-
-    // First ornament
     .to('.ornament.gsap-fade', {
         opacity: 1,
         y: 0,
         duration: 0.8,
-        stagger: 0.3
-    }, '-=0.5')
-
-    // Hero text section
+        stagger: 0.4
+    }, '-=0.6')
     .to('.hero-text.gsap-fade', {
         opacity: 1,
         y: 0,
-        duration: 0.8
-    }, '-=0.3')
-
-    // Anniversary title with letter spacing animation
+        duration: 1
+    }, '-=0.4')
     .to('.gsap-title', {
         opacity: 1,
-        scale: 1,
-        letterSpacing: '3px',
+        y: 0,
         duration: 1.2,
-        ease: 'power2.out'
-    }, '-=0.5')
-
-    // Couple names - dramatic entrance
+        ease: 'power3.out'
+    }, '-=0.8')
+    // Names - elegant fade up
     .to('.gsap-names .name:first-child', {
         opacity: 1,
         y: 0,
-        scale: 1,
-        duration: 1,
-        ease: 'back.out(1.7)'
-    }, '-=0.3')
-
-    // Ampersand spin in
+        duration: 1.2,
+        ease: 'power3.out'
+    }, '-=0.5')
     .to('.gsap-names .ampersand', {
         opacity: 1,
         scale: 1,
-        rotation: 0,
         duration: 0.8,
-        ease: 'back.out(2)'
-    }, '-=0.6')
-
-    // Second name
+        ease: 'power2.out'
+    }, '-=0.8')
     .to('.gsap-names .name:last-child', {
         opacity: 1,
         y: 0,
-        scale: 1,
-        duration: 1,
-        ease: 'back.out(1.7)'
-    }, '-=0.6')
-
-    // Hero note
+        duration: 1.2,
+        ease: 'power3.out'
+    }, '-=0.8')
     .to('.hero-note.gsap-fade', {
         opacity: 1,
         y: 0,
-        duration: 0.8
-    }, '-=0.3')
-
-    // Scroll indicator
-    .to('.scroll-indicator.gsap-fade', {
-        opacity: 1,
-        y: 0,
-        duration: 0.8
-    }, '-=0.3');
-
-    // Add floating animation to names after entrance
-    tl.add(() => {
-        gsap.to('.gsap-names .name', {
-            y: -5,
-            duration: 2,
-            ease: 'sine.inOut',
-            yoyo: true,
-            repeat: -1,
-            stagger: 0.2
-        });
-    });
+        duration: 1
+    }, '-=0.5');
 }
 
 // ===== Countdown Timer =====
@@ -190,11 +145,17 @@ function updateCountdown() {
     const now = new Date();
     const diff = EVENT_CONFIG.date - now;
 
+    const elements = {
+        days: document.getElementById('days'),
+        hours: document.getElementById('hours'),
+        minutes: document.getElementById('minutes'),
+        seconds: document.getElementById('seconds')
+    };
+
     if (diff <= 0) {
-        document.getElementById('days').textContent = '00';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
+        Object.values(elements).forEach(el => {
+            if (el) el.textContent = '00';
+        });
         return;
     }
 
@@ -203,33 +164,10 @@ function updateCountdown() {
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-    // Animate number changes
-    animateValue('days', days);
-    animateValue('hours', hours);
-    animateValue('minutes', minutes);
-    animateValue('seconds', seconds);
-}
-
-function animateValue(id, newValue) {
-    const el = document.getElementById(id);
-    const currentValue = el.textContent;
-    const newValueStr = String(newValue).padStart(2, '0');
-
-    if (currentValue !== newValueStr) {
-        gsap.to(el, {
-            scale: 1.1,
-            duration: 0.15,
-            ease: 'power2.out',
-            onComplete: () => {
-                el.textContent = newValueStr;
-                gsap.to(el, {
-                    scale: 1,
-                    duration: 0.15,
-                    ease: 'power2.in'
-                });
-            }
-        });
-    }
+    if (elements.days) elements.days.textContent = String(days).padStart(2, '0');
+    if (elements.hours) elements.hours.textContent = String(hours).padStart(2, '0');
+    if (elements.minutes) elements.minutes.textContent = String(minutes).padStart(2, '0');
+    if (elements.seconds) elements.seconds.textContent = String(seconds).padStart(2, '0');
 }
 
 // ===== Google Calendar Link =====
@@ -291,7 +229,7 @@ function downloadICS() {
     URL.revokeObjectURL(url);
 }
 
-// ===== Scroll Reveal Animation with GSAP =====
+// ===== Scroll Reveal Animation =====
 function initScrollReveal() {
     const revealElements = document.querySelectorAll('.scroll-reveal');
 
@@ -302,7 +240,7 @@ function initScrollReveal() {
                     opacity: 1,
                     y: 0,
                     duration: 0.8,
-                    ease: 'power3.out'
+                    ease: 'power2.out'
                 });
                 observer.unobserve(entry.target);
             }
@@ -313,17 +251,17 @@ function initScrollReveal() {
     });
 
     revealElements.forEach(el => {
-        gsap.set(el, { opacity: 0, y: 40 });
+        gsap.set(el, { opacity: 0, y: 30 });
         observer.observe(el);
     });
 }
 
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize particle system
-    new ParticleSystem('particles-canvas');
+    // Initialize fireworks
+    initFireworks();
 
-    // Initialize GSAP hero animations
+    // Initialize elegant hero animations
     initHeroAnimations();
 
     // Start countdown
@@ -347,6 +285,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Initialize scroll reveal animations
+    // Initialize scroll reveal
     initScrollReveal();
 });

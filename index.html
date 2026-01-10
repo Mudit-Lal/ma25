@@ -22,12 +22,14 @@
 
     <!-- GSAP for professional animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <!-- Fireworks for celebration effect -->
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
 </head>
 <body>
     <!-- Hero Section -->
     <header class="hero">
-        <!-- Floating particles canvas -->
-        <canvas id="particles-canvas"></canvas>
+        <!-- Fireworks canvas -->
+        <div id="fireworks-container"></div>
 
         <div class="hero-content">
             <div class="shloka gsap-fade">
@@ -52,11 +54,6 @@
             <div class="ornament gsap-fade"></div>
 
             <p class="hero-note gsap-fade">We'd love for you to join us</p>
-
-            <div class="scroll-indicator gsap-fade">
-                <span>Scroll</span>
-                <div class="scroll-arrow"></div>
-            </div>
         </div>
     </header>
 

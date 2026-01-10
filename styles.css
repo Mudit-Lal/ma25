@@ -107,8 +107,8 @@ h1, h2, h3 {
     overflow: hidden;
 }
 
-/* Particle Canvas */
-#particles-canvas {
+/* Fireworks Container */
+#fireworks-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -173,35 +173,6 @@ h1, h2, h3 {
     letter-spacing: 8px;
 }
 
-/* Scroll Indicator */
-.scroll-indicator {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--maroon);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.scroll-arrow {
-    width: 20px;
-    height: 20px;
-    border-right: 2px solid var(--gold);
-    border-bottom: 2px solid var(--gold);
-    transform: rotate(45deg);
-    animation: scrollBounce 2s ease-in-out infinite;
-}
-
-@keyframes scrollBounce {
-    0%, 100% { transform: rotate(45deg) translateY(0); opacity: 1; }
-    50% { transform: rotate(45deg) translateY(8px); opacity: 0.5; }
-}
 
 /* Scroll reveal animation */
 .scroll-reveal {
