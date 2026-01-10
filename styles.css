@@ -101,10 +101,21 @@ h1, h2, h3 {
     justify-content: center;
     padding: 3rem 1.5rem;
     background:
-        linear-gradient(135deg, var(--warm-white) 0%, var(--cream) 100%);
+        radial-gradient(ellipse at top, var(--warm-white) 0%, var(--cream) 50%, #f5ebe0 100%);
     border-bottom: 3px solid var(--gold);
     position: relative;
     overflow: hidden;
+}
+
+/* Particle Canvas */
+#particles-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .hero::before,
@@ -131,25 +142,65 @@ h1, h2, h3 {
 .hero-content {
     text-align: center;
     max-width: 700px;
+    position: relative;
+    z-index: 2;
 }
 
-/* Staggered fade-in animation */
-.anim-fade {
+/* GSAP Animation Initial States */
+.gsap-fade {
     opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s ease-out forwards;
-    animation-delay: var(--delay, 0s);
+    transform: translateY(30px);
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.gsap-names {
+    opacity: 0;
+}
+
+.gsap-names .name {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+}
+
+.gsap-names .ampersand {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.gsap-title {
+    opacity: 0;
+    transform: scale(0.8);
+    letter-spacing: 8px;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--maroon);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.scroll-arrow {
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    transform: rotate(45deg);
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+    0%, 100% { transform: rotate(45deg) translateY(0); opacity: 1; }
+    50% { transform: rotate(45deg) translateY(8px); opacity: 0.5; }
 }
 
 /* Scroll reveal animation */

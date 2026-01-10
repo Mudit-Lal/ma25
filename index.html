@@ -19,33 +19,44 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- GSAP for professional animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
     <!-- Hero Section -->
     <header class="hero">
+        <!-- Floating particles canvas -->
+        <canvas id="particles-canvas"></canvas>
+
         <div class="hero-content">
-            <div class="shloka anim-fade" style="--delay: 0s">
+            <div class="shloka gsap-fade">
                 <p class="sanskrit">॥ श्री गणेशाय नमः ॥</p>
                 <p class="mantra">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः।<br>निर्विघ्नं कुरु मे देव सर्व कार्येषु सर्वदा॥</p>
             </div>
 
-            <div class="ornament anim-fade" style="--delay: 0.2s"></div>
+            <div class="ornament gsap-fade"></div>
 
-            <div class="hero-text anim-fade" style="--delay: 0.4s">
+            <div class="hero-text gsap-fade">
                 <p class="invite-text">You're invited to celebrate</p>
-                <h2 class="anniversary-title">25 Years Together</h2>
+                <h2 class="anniversary-title gsap-title">25 Years Together</h2>
                 <p class="subtitle">Silver Jubilee</p>
             </div>
 
-            <h1 class="couple-names anim-fade" style="--delay: 0.6s">
-                <span class="name">Manoj</span>
+            <h1 class="couple-names gsap-names">
+                <span class="name" data-text="Manoj">Manoj</span>
                 <span class="ampersand">&</span>
-                <span class="name">Shalini</span>
+                <span class="name" data-text="Shalini">Shalini</span>
             </h1>
 
-            <div class="ornament anim-fade" style="--delay: 0.8s"></div>
+            <div class="ornament gsap-fade"></div>
 
-            <p class="hero-note anim-fade" style="--delay: 1s">We'd love for you to join us</p>
+            <p class="hero-note gsap-fade">We'd love for you to join us</p>
+
+            <div class="scroll-indicator gsap-fade">
+                <span>Scroll</span>
+                <div class="scroll-arrow"></div>
+            </div>
         </div>
     </header>
 
