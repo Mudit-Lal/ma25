@@ -8,6 +8,159 @@ const EVENT_CONFIG = {
     description: 'Silver Jubilee Celebration - 25th Wedding Anniversary of Manoj & Shalini. Join us for this special occasion!'
 };
 
+// ===== Translations =====
+const translations = {
+    en: {
+        inviteText: "You're invited to celebrate",
+        anniversaryTitle: "25 Years Together",
+        subtitle: "Silver Jubilee",
+        heroNote: "We'd love for you to join us",
+        ourStory: "Our Story",
+        photosComingSoon: "Photos coming soon",
+        whenWhere: "When & Where",
+        dayWednesday: "Wednesday",
+        monthYear: "January 2026",
+        days: "Days",
+        hours: "Hours",
+        minutes: "Minutes",
+        seconds: "Seconds",
+        addToCalendar: "Add to your calendar",
+        googleCalendar: "Google Calendar",
+        downloadIcs: "Download .ics",
+        theVenue: "The Venue",
+        hotelName: "Hotel Holiday Inn",
+        venueAddress: "Near Transport Nagar Metro Station<br>& Amausi Airport, Kanpur Road,<br>Lucknow, Uttar Pradesh, Bharat - 226008",
+        getDirections: "Get Directions",
+        ourFamily: "Our Family",
+        theirSons: "Their Sons",
+        warmWishesFrom: "With warm wishes from",
+        wishesList: "Swatantra Bala, Anil Srivastava, Vishwanath Srivastava, Saloni Srivastava, Anupama Srivastava, Sachin Srivastava, Aayush Srivastava, Virat Srivastava, Hardik Srivastava, Gunav Ray, Raghav Ray & all relatives and friends",
+        questions: "Questions?",
+        reachOutTo: "Reach out to",
+        call: "Call",
+        footerEvent: "25th Wedding Anniversary | Silver Jubilee",
+        footerDate: "28th January 2026 | 7:00 PM IST",
+        footerVenue: "Hotel Holiday Inn, Lucknow",
+        madeWithLove: "Made with love by the family",
+        toggleLabel: "हिंदी"
+    },
+    hi: {
+        inviteText: "आप आमंत्रित हैं",
+        anniversaryTitle: "25 वर्ष साथ",
+        subtitle: "रजत जयंती",
+        heroNote: "हम चाहते हैं कि आप हमारे साथ जुड़ें",
+        ourStory: "हमारी कहानी",
+        photosComingSoon: "फोटो जल्द आ रहे हैं",
+        whenWhere: "कब और कहाँ",
+        dayWednesday: "बुधवार",
+        monthYear: "जनवरी 2026",
+        days: "दिन",
+        hours: "घंटे",
+        minutes: "मिनट",
+        seconds: "सेकंड",
+        addToCalendar: "अपने कैलेंडर में जोड़ें",
+        googleCalendar: "गूगल कैलेंडर",
+        downloadIcs: ".ics डाउनलोड करें",
+        theVenue: "स्थान",
+        hotelName: "होटल हॉलिडे इन",
+        venueAddress: "ट्रांसपोर्ट नगर मेट्रो स्टेशन<br>एवं अमौसी हवाई अड्डे के निकट, कानपुर रोड,<br>लखनऊ, उत्तर प्रदेश, भारत - 226008",
+        getDirections: "दिशा-निर्देश प्राप्त करें",
+        ourFamily: "हमारा परिवार",
+        theirSons: "उनके पुत्र",
+        warmWishesFrom: "शुभकामनाओं के साथ",
+        wishesList: "स्वतंत्र बाला, अनिल श्रीवास्तव, विश्वनाथ श्रीवास्तव, सलोनी श्रीवास्तव, अनुपमा श्रीवास्तव, सचिन श्रीवास्तव, आयुष श्रीवास्तव, विराट श्रीवास्तव, हार्दिक श्रीवास्तव, गुणव राय, राघव राय एवं सभी रिश्तेदार व मित्रगण",
+        questions: "प्रश्न हैं?",
+        reachOutTo: "संपर्क करें",
+        call: "कॉल करें",
+        footerEvent: "25वीं शादी की सालगिरह | रजत जयंती",
+        footerDate: "28 जनवरी 2026 | शाम 7:00 बजे",
+        footerVenue: "होटल हॉलिडे इन, लखनऊ",
+        madeWithLove: "परिवार द्वारा प्यार से बनाया गया",
+        toggleLabel: "English"
+    }
+};
+
+// ===== Language Management =====
+let currentLanguage = 'en';
+
+function setLanguage(lang) {
+    currentLanguage = lang;
+    localStorage.setItem('preferredLanguage', lang);
+
+    // Update all translatable elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+            el.textContent = translations[lang][key];
+        }
+    });
+
+    // Update elements with HTML content
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+        }
+    });
+
+    // Update toggle button label
+    const toggleLabel = document.getElementById('toggle-label');
+    if (toggleLabel) {
+        toggleLabel.textContent = translations[lang].toggleLabel;
+    }
+
+    // Update HTML lang attribute
+    document.documentElement.lang = lang === 'hi' ? 'hi' : 'en';
+}
+
+function initLanguageSelector() {
+    const overlay = document.getElementById('language-overlay');
+    const toggleBtn = document.getElementById('language-toggle');
+    const languageButtons = document.querySelectorAll('.btn-language');
+
+    // Check for saved preference
+    const savedLang = localStorage.getItem('preferredLanguage');
+
+    if (savedLang) {
+        // User has already selected a language before
+        overlay.classList.add('hidden');
+        toggleBtn.style.display = 'flex';
+        setLanguage(savedLang);
+        // Start animations immediately
+        setTimeout(() => {
+            initFireworks();
+            initHeroAnimations();
+        }, 100);
+    } else {
+        // Show language selection overlay
+        // Delay showing content animations until language is selected
+    }
+
+    // Language button click handlers
+    languageButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.getAttribute('data-lang');
+            setLanguage(lang);
+
+            // Hide overlay with animation
+            overlay.classList.add('hidden');
+            toggleBtn.style.display = 'flex';
+
+            // Start animations after overlay fades
+            setTimeout(() => {
+                initFireworks();
+                initHeroAnimations();
+            }, 300);
+        });
+    });
+
+    // Toggle button click handler
+    toggleBtn.addEventListener('click', () => {
+        const newLang = currentLanguage === 'en' ? 'hi' : 'en';
+        setLanguage(newLang);
+    });
+}
+
 // ===== Elegant Fireworks =====
 function initFireworks() {
     const container = document.getElementById('fireworks-container');
@@ -264,13 +417,10 @@ function initScrollReveal() {
 
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize fireworks
-    initFireworks();
+    // Initialize language selector first
+    initLanguageSelector();
 
-    // Initialize elegant hero animations
-    initHeroAnimations();
-
-    // Start countdown
+    // Start countdown (works regardless of language)
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
