@@ -1,0 +1,26 @@
+{
+  "images": [
+    {
+      "id": "001",
+      "alt": {
+        "en": "Family gathering",
+        "hi": "पारिवारिक समागम"
+      },
+      "caption": {
+        "en": "Friends and family celebrating together",
+        "hi": "दोस्त और परिवार एक साथ जश्न मना रहे हैं"
+      }
+    },
+    {
+      "id": "002",
+      "alt": {
+        "en": "Group photo",
+        "hi": "सामूहिक तस्वीर"
+      },
+      "caption": {
+        "en": "Memorable moments with loved ones",
+        "hi": "प्रियजनों के साथ यादगार पल"
+      }
+    }
+  ]
+}

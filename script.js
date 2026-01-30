@@ -11,75 +11,95 @@ const EVENT_CONFIG = {
 // ===== Translations =====
 const translations = {
     en: {
-        inviteText: "You are cordially invited to celebrate",
+        // Hero section
+        inviteText: "Thank you for celebrating with us",
         anniversaryTitle: "25 Years of Togetherness",
         subtitle: "Silver Jubilee Celebration",
-        heroNote: "Your presence will make this occasion truly special",
-        ourJourney: "Our Journey",
-        memoriesTitle: "25 Years of Beautiful Memories",
-        memoriesSubtitle: "Photo gallery coming soon",
-        eventDetails: "Event Details",
+        heroNote: "Your presence made this milestone truly memorable",
+        completedDate: "Celebrated on 28th January 2026",
+
+        // Gallery sections
+        eventPhotos: "Event Photos",
+        stagePhotos: "Stage Photos",
+        eventVideos: "Event Videos",
+        eventPhotosIntro: "Moments with family and friends",
+        stagePhotosIntro: "Special moments on stage",
+        eventVideosIntro: "Highlights and reels from the celebration",
+        loadingPhotos: "Loading photos...",
+        loadingVideos: "Loading videos...",
+        galleryError: "Unable to load media. Please refresh the page.",
+
+        // Event section
+        eventDetails: "Event Memories",
         dayWednesday: "Wednesday",
         monthYear: "January 2026",
-        countdownIntro: "Counting down to the celebration",
-        days: "Days",
-        hours: "Hours",
-        minutes: "Minutes",
-        seconds: "Seconds",
-        addToCalendar: "Save the Date",
-        googleCalendar: "Google Calendar",
-        downloadIcs: "Apple / Outlook",
-        theVenue: "The Venue",
+        celebrationSummary: "An unforgettable evening filled with love, joy, and cherished moments with family and friends.",
+
+        // Venue section
+        theVenue: "Where We Celebrated",
         hotelName: "Hotel Holiday Inn",
         venueAddress: "Near Transport Nagar Metro Station<br>& Amausi Airport, Kanpur Road,<br>Lucknow, Uttar Pradesh, Bharat - 226008",
         getDirections: "Get Directions",
+
+        // Family section
         ourFamily: "Our Family",
         theirSons: "Their Sons",
         warmWishesFrom: "With warm wishes from",
         wishesList: "Swatantra Bala, Anil Srivastava, Vishwanath Srivastava, Saloni Srivastava, Anupama Srivastava, Sachin Srivastava, Aayush Srivastava, Virat Srivastava, Hardik Srivastava, Gunav Ray, Raghav Ray & all relatives and friends",
-        needAssistance: "Need Assistance?",
-        forInquiries: "For travel, accommodation, or any queries, contact",
-        call: "Call",
+
+        // Footer
         footerEvent: "25th Wedding Anniversary | Silver Jubilee",
-        footerDate: "28th January 2026 | 7:00 PM onwards",
+        footerDate: "Celebrated on 28th January 2026",
         footerVenue: "Hotel Holiday Inn, Lucknow",
         madeWithLove: "Made with love by the family",
+
+        // Language toggle
         toggleLabel: "हिंदी"
     },
     hi: {
-        inviteText: "आप सादर आमंत्रित हैं",
+        // Hero section
+        inviteText: "हमारे साथ जश्न मनाने के लिए धन्यवाद",
         anniversaryTitle: "साथ के 25 वर्ष",
         subtitle: "रजत जयंती समारोह",
-        heroNote: "आपकी उपस्थिति इस अवसर को विशेष बनाएगी",
-        ourJourney: "हमारा सफ़र",
-        memoriesTitle: "25 वर्षों की सुंदर यादें",
-        memoriesSubtitle: "फोटो गैलरी जल्द आ रही है",
-        eventDetails: "कार्यक्रम विवरण",
+        heroNote: "आपकी उपस्थिति ने इस उपलब्धि को यादगार बनाया",
+        completedDate: "28 जनवरी 2026 को मनाया गया",
+
+        // Gallery sections
+        eventPhotos: "कार्यक्रम की तस्वीरें",
+        stagePhotos: "मंच की तस्वीरें",
+        eventVideos: "कार्यक्रम के वीडियो",
+        eventPhotosIntro: "परिवार और दोस्तों के साथ पल",
+        stagePhotosIntro: "मंच पर खास पल",
+        eventVideosIntro: "समारोह की झलकियां और रील्स",
+        loadingPhotos: "फ़ोटो लोड हो रहे हैं...",
+        loadingVideos: "वीडियो लोड हो रहे हैं...",
+        galleryError: "मीडिया लोड नहीं हो सका। कृपया पेज रिफ्रेश करें।",
+
+        // Event section
+        eventDetails: "कार्यक्रम की यादें",
         dayWednesday: "बुधवार",
         monthYear: "जनवरी 2026",
-        countdownIntro: "समारोह की उलटी गिनती",
-        days: "दिन",
-        hours: "घंटे",
-        minutes: "मिनट",
-        seconds: "सेकंड",
-        addToCalendar: "तिथि सहेजें",
-        googleCalendar: "गूगल कैलेंडर",
-        downloadIcs: "एप्पल / आउटलुक",
-        theVenue: "स्थान",
+        celebrationSummary: "एक अविस्मरणीय शाम जो प्यार, खुशी और परिवार एवं मित्रों के साथ संजोई गई यादों से भरी रही।",
+
+        // Venue section
+        theVenue: "जहाँ हमने जश्न मनाया",
         hotelName: "होटल हॉलिडे इन",
         venueAddress: "ट्रांसपोर्ट नगर मेट्रो स्टेशन<br>एवं अमौसी हवाई अड्डे के निकट, कानपुर रोड,<br>लखनऊ, उत्तर प्रदेश, भारत - 226008",
         getDirections: "दिशा-निर्देश",
+
+        // Family section
         ourFamily: "हमारा परिवार",
         theirSons: "उनके पुत्र",
         warmWishesFrom: "शुभकामनाओं सहित",
         wishesList: "स्वतंत्र बाला, अनिल श्रीवास्तव, विश्वनाथ श्रीवास्तव, सलोनी श्रीवास्तव, अनुपमा श्रीवास्तव, सचिन श्रीवास्तव, आयुष श्रीवास्तव, विराट श्रीवास्तव, हार्दिक श्रीवास्तव, गुणव राय, राघव राय एवं सभी रिश्तेदार व मित्रगण",
-        needAssistance: "सहायता चाहिए?",
-        forInquiries: "यात्रा, आवास या किसी भी प्रश्न के लिए संपर्क करें",
-        call: "कॉल करें",
+
+        // Footer
         footerEvent: "25वीं शादी की सालगिरह | रजत जयंती",
-        footerDate: "28 जनवरी 2026 | शाम 7:00 बजे से",
+        footerDate: "28 जनवरी 2026 को मनाया गया",
         footerVenue: "होटल हॉलिडे इन, लखनऊ",
         madeWithLove: "परिवार द्वारा प्रेम से निर्मित",
+
+        // Language toggle
         toggleLabel: "English"
     }
 };
@@ -304,94 +324,6 @@ function initHeroAnimations() {
 }
 
 // ===== Countdown Timer =====
-function updateCountdown() {
-    const now = new Date();
-    const diff = EVENT_CONFIG.date - now;
-
-    const elements = {
-        days: document.getElementById('days'),
-        hours: document.getElementById('hours'),
-        minutes: document.getElementById('minutes'),
-        seconds: document.getElementById('seconds')
-    };
-
-    if (diff <= 0) {
-        Object.values(elements).forEach(el => {
-            if (el) el.textContent = '00';
-        });
-        return;
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-    if (elements.days) elements.days.textContent = String(days).padStart(2, '0');
-    if (elements.hours) elements.hours.textContent = String(hours).padStart(2, '0');
-    if (elements.minutes) elements.minutes.textContent = String(minutes).padStart(2, '0');
-    if (elements.seconds) elements.seconds.textContent = String(seconds).padStart(2, '0');
-}
-
-// ===== Google Calendar Link =====
-function generateGoogleCalendarUrl() {
-    const params = new URLSearchParams({
-        action: 'TEMPLATE',
-        text: EVENT_CONFIG.title,
-        dates: `${EVENT_CONFIG.dateString}/${EVENT_CONFIG.endDateString}`,
-        details: EVENT_CONFIG.description,
-        location: EVENT_CONFIG.location,
-        ctz: 'Asia/Kolkata'
-    });
-
-    return `https://calendar.google.com/calendar/render?${params.toString()}`;
-}
-
-// ===== ICS File Generation =====
-function generateICSContent() {
-    const icsContent = `BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Manoj Shalini Anniversary//EN
-CALSCALE:GREGORIAN
-METHOD:PUBLISH
-BEGIN:VEVENT
-DTSTART;TZID=Asia/Kolkata:20260128T190000
-DTEND;TZID=Asia/Kolkata:20260128T230000
-SUMMARY:${EVENT_CONFIG.title}
-DESCRIPTION:${EVENT_CONFIG.description}
-LOCATION:${EVENT_CONFIG.location}
-STATUS:CONFIRMED
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-P1D
-ACTION:DISPLAY
-DESCRIPTION:Reminder: ${EVENT_CONFIG.title} is tomorrow!
-END:VALARM
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Reminder: ${EVENT_CONFIG.title} starts in 2 hours!
-END:VALARM
-END:VEVENT
-END:VCALENDAR`;
-
-    return icsContent;
-}
-
-function downloadICS() {
-    const icsContent = generateICSContent();
-    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'manoj-shalini-25th-anniversary.ics';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-}
-
 // ===== Scroll Reveal Animation =====
 function initScrollReveal() {
     const revealElements = document.querySelectorAll('.scroll-reveal');
@@ -420,30 +352,185 @@ function initScrollReveal() {
 }
 
 // ===== Initialize =====
+// ===== GALLERY MANAGEMENT =====
+
+// Generic photo gallery loader
+async function loadPhotoGallery(category, galleryId, loaderId, galleryGroupName) {
+    const galleryContainer = document.getElementById(galleryId);
+    const loader = document.getElementById(loaderId);
+
+    if (!galleryContainer) return;
+
+    try {
+        loader.style.display = 'block';
+
+        // Load captions data for this category
+        const response = await fetch(`images/${category}/captions.json`);
+        if (!response.ok) throw new Error(`Failed to load ${category} captions`);
+
+        const data = await response.json();
+        const images = data.images;
+
+        loader.style.display = 'none';
+
+        // Build gallery items
+        images.forEach((img, index) => {
+            const item = document.createElement('a');
+            item.href = `images/${category}/full/${img.id}.jpg`;
+            item.className = 'gallery-item glightbox';
+            item.setAttribute('data-gallery', galleryGroupName);
+
+            // Build bilingual caption
+            const caption = `
+                <div class="caption-bilingual">
+                    <div class="caption-en">${img.caption.en}</div>
+                    <div class="caption-hi">${img.caption.hi}</div>
+                </div>
+            `;
+
+            item.setAttribute('data-glightbox', `title: ${img.alt[currentLanguage]}; description: ${caption}`);
+
+            const imgEl = document.createElement('img');
+            imgEl.src = `images/${category}/thumbnails/${img.id}.jpg`;
+            imgEl.alt = img.alt[currentLanguage];
+            imgEl.loading = 'lazy';
+
+            const overlay = document.createElement('div');
+            overlay.className = 'gallery-overlay';
+            overlay.innerHTML = `
+                <svg class="zoom-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+            `;
+
+            item.appendChild(imgEl);
+            item.appendChild(overlay);
+            galleryContainer.appendChild(item);
+
+            // Staggered fade-in animation
+            gsap.from(item, {
+                opacity: 0,
+                y: 20,
+                duration: 0.6,
+                delay: index * 0.05,
+                ease: 'power2.out'
+            });
+        });
+
+    } catch (error) {
+        console.error(`${category} gallery loading error:`, error);
+        loader.style.display = 'none';
+        // Show error message or gracefully hide section
+    }
+}
+
+// Video gallery loader
+async function loadVideoGallery() {
+    const galleryContainer = document.getElementById('event-videos-gallery');
+    const loader = document.getElementById('event-videos-loader');
+
+    if (!galleryContainer) return;
+
+    try {
+        loader.style.display = 'block';
+
+        const response = await fetch('images/videos/captions.json');
+        if (!response.ok) throw new Error('Failed to load video captions');
+
+        const data = await response.json();
+        const videos = data.videos;
+
+        loader.style.display = 'none';
+
+        // Build video items
+        videos.forEach((video, index) => {
+            const item = document.createElement('a');
+            item.href = `images/videos/full/${video.id}.mp4`;
+            item.className = 'gallery-item video-item glightbox';
+            item.setAttribute('data-gallery', 'videos-gallery');
+
+            // Build bilingual caption
+            const caption = `
+                <div class="caption-bilingual">
+                    <div class="caption-en">${video.caption.en}</div>
+                    <div class="caption-hi">${video.caption.hi}</div>
+                </div>
+            `;
+
+            item.setAttribute('data-glightbox', `title: ${video.alt[currentLanguage]}; description: ${caption}`);
+
+            // Video thumbnail with play icon
+            const imgEl = document.createElement('img');
+            imgEl.src = `images/videos/thumbnails/${video.id}.jpg`;
+            imgEl.alt = video.alt[currentLanguage];
+            imgEl.loading = 'lazy';
+
+            const overlay = document.createElement('div');
+            overlay.className = 'gallery-overlay video-overlay';
+            overlay.innerHTML = `
+                <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+                ${video.duration ? `<span class="video-duration">${video.duration}</span>` : ''}
+            `;
+
+            item.appendChild(imgEl);
+            item.appendChild(overlay);
+            galleryContainer.appendChild(item);
+
+            // Staggered fade-in animation
+            gsap.from(item, {
+                opacity: 0,
+                y: 20,
+                duration: 0.6,
+                delay: index * 0.05,
+                ease: 'power2.out'
+            });
+        });
+
+    } catch (error) {
+        console.error('Video gallery loading error:', error);
+        loader.style.display = 'none';
+    }
+}
+
+// Initialize all galleries
+async function initGalleries() {
+    await Promise.all([
+        loadPhotoGallery('event-photos', 'event-photos-gallery', 'event-photos-loader', 'event-photos-group'),
+        loadPhotoGallery('stage-photos', 'stage-photos-gallery', 'stage-photos-loader', 'stage-photos-group'),
+        loadVideoGallery()
+    ]);
+
+    // Initialize GLightbox after all galleries loaded
+    const lightbox = GLightbox({
+        selector: '.glightbox',
+        touchNavigation: true,
+        loop: true,
+        closeButton: true,
+        plyr: {
+            config: {
+                ratio: '16:9',
+                muted: false,
+                hideControls: false,
+                youtube: {
+                    noCookie: true,
+                    rel: 0,
+                    showinfo: 0,
+                    iv_load_policy: 3
+                }
+            }
+        }
+    });
+}
+
+// ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize language selector first
     initLanguageSelector();
 
-    // Start countdown (works regardless of language)
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-    // Set up Google Calendar link
-    const googleCalendarBtn = document.getElementById('google-calendar');
-    if (googleCalendarBtn) {
-        googleCalendarBtn.href = generateGoogleCalendarUrl();
-        googleCalendarBtn.target = '_blank';
-        googleCalendarBtn.rel = 'noopener noreferrer';
-    }
-
-    // Set up ICS download
-    const icsDownloadBtn = document.getElementById('ics-download');
-    if (icsDownloadBtn) {
-        icsDownloadBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            downloadICS();
-        });
-    }
+    // Initialize photo & video galleries
+    initGalleries();
 
     // Initialize scroll reveal
     initScrollReveal();

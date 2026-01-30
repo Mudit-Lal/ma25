@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Invitation - 25th Anniversary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #e8e8e8;
+            padding: 20px;
+        }
+
+        .invite-card {
+            width: 1000px;
+            height: 1000px;
+            background: linear-gradient(145deg, #ffffff 0%, #fdfbf7 50%, #fff9f0 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+        }
+
+        /* Decorative corner flourishes */
+        .corner {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-color: #b8860b;
+            border-style: solid;
+            opacity: 0.5;
+        }
+
+        .corner-tl {
+            top: 30px;
+            left: 30px;
+            border-width: 3px 0 0 3px;
+        }
+
+        .corner-tr {
+            top: 30px;
+            right: 30px;
+            border-width: 3px 3px 0 0;
+        }
+
+        .corner-bl {
+            bottom: 30px;
+            left: 30px;
+            border-width: 0 0 3px 3px;
+        }
+
+        .corner-br {
+            bottom: 30px;
+            right: 30px;
+            border-width: 0 3px 3px 0;
+        }
+
+        /* Inner decorative border */
+        .inner-border {
+            position: absolute;
+            top: 60px;
+            left: 60px;
+            right: 60px;
+            bottom: 60px;
+            border: 1px solid rgba(184, 134, 11, 0.25);
+            pointer-events: none;
+        }
+
+        /* Decorative circles */
+        .circle-decor {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(184, 134, 11, 0.1);
+        }
+
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+            top: -100px;
+            right: -100px;
+        }
+
+        .circle-2 {
+            width: 300px;
+            height: 300px;
+            bottom: -80px;
+            left: -80px;
+        }
+
+        /* Content */
+        .shloka {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            color: #b8860b;
+            margin-bottom: 18px;
+            letter-spacing: 2px;
+        }
+
+        .ornament {
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #b8860b, transparent);
+            margin-bottom: 22px;
+            position: relative;
+        }
+
+        .ornament::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: #b8860b;
+            border-radius: 50%;
+        }
+
+        .invite-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: #444444;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .names-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 54px;
+            font-weight: 600;
+            color: #2c2c2c;
+            letter-spacing: 3px;
+            line-height: 1.2;
+        }
+
+        .ampersand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            color: #b8860b;
+            font-style: italic;
+            margin: 2px 0;
+        }
+
+        .anniversary-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            font-weight: 500;
+            color: #b8860b;
+            margin-bottom: 6px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #555555;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .ornament-2 {
+            width: 150px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #b8860b, transparent);
+            margin-bottom: 25px;
+        }
+
+        .event-details {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: #2c2c2c;
+            margin-bottom: 10px;
+        }
+
+        .day-time {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #333333;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+        }
+
+        .venue-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 500;
+            color: #b8860b;
+            margin-bottom: 8px;
+        }
+
+        .venue-address {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #555555;
+            line-height: 1.8;
+            letter-spacing: 1px;
+        }
+
+        .footer-ornament {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #b8860b, transparent);
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .website {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: #b8860b;
+            letter-spacing: 2px;
+        }
+
+        .rsvp-note {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            color: #666666;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="invite-card">
+        <!-- Decorative elements -->
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+        <div class="inner-border"></div>
+        <div class="circle-decor circle-1"></div>
+        <div class="circle-decor circle-2"></div>
+
+        <!-- Content -->
+        <div class="shloka">॥ श्री गणेशाय नमः ॥</div>
+
+        <div class="ornament"></div>
+
+        <p class="invite-text">You are cordially invited</p>
+
+        <div class="names-block">
+            <span class="name">Manoj Lal</span>
+            <span class="ampersand">&</span>
+            <span class="name">Shalini Srivastava</span>
+        </div>
+
+        <h2 class="anniversary-title">25 Years of Togetherness</h2>
+
+        <p class="subtitle">Silver Jubilee Celebration</p>
+
+        <div class="ornament-2"></div>
+
+        <div class="event-details">
+            <p class="date">28th January 2026</p>
+            <p class="day-time">Wednesday | 7:00 PM onwards</p>
+
+            <p class="venue-name">Hotel Holiday Inn</p>
+            <p class="venue-address">
+                Kanpur Road, Near Transport Nagar<br>
+                Lucknow, Uttar Pradesh
+            </p>
+        </div>
+
+        <div class="footer-ornament"></div>
+
+        <p class="website">www.dvlk.in/ma25</p>
+        <p class="rsvp-note">For details & directions, visit the website</p>
+    </div>
+</body>
+</html>
