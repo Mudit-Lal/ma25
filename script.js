@@ -307,25 +307,9 @@ async function loadCoupleCarousel() {
 }
 
 // ===========================
-// SMOOTH SCROLL
-// ===========================
-function initSmoothScroll() {
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    if (scrollIndicator) {
-        scrollIndicator.addEventListener('click', () => {
-            const firstGallery = document.querySelector('.gallery-section');
-            if (firstGallery) {
-                firstGallery.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    }
-}
-
-// ===========================
 // INITIALIZATION
 // ===========================
 document.addEventListener('DOMContentLoaded', () => {
     loadCoupleCarousel();
     initGalleries();
-    initSmoothScroll();
 });
