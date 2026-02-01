@@ -3,223 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manoj & Shalini | 25th Wedding Anniversary</title>
+    <title>Manoj & Shalini - 25th Anniversary</title>
 
-    <!-- SEO & Open Graph -->
-    <meta name="description" content="Join us in celebrating Manoj & Shalini's 25th Wedding Anniversary - Silver Jubilee on 28th January 2026 at Hotel Holiday Inn, Lucknow">
-    <meta property="og:title" content="Manoj & Shalini | 25th Wedding Anniversary">
-    <meta property="og:description" content="Silver Jubilee Celebration - 28th January 2026 at Hotel Holiday Inn, Lucknow">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mudit-lal.github.io/ma25/">
+    <!-- SEO -->
+    <meta name="description" content="Photo album from Manoj & Shalini's 25th Wedding Anniversary celebration on 28th January 2026">
 
-    <!-- Google Fonts - Cinzel (royal serif) + Raleway (clean sans) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- GSAP for professional animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <!-- Fireworks for celebration effect -->
-    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
-    <!-- GLightbox for photo & video galleries -->
+    <!-- GLightbox for Photo/Video Viewing -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/css/glightbox.min.css">
     <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Language Toggle Button (shown after selection) -->
-    <button id="language-toggle" class="language-toggle" style="display: none;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
-        <span id="toggle-label">हिंदी</span>
-    </button>
-
-    <!-- Language Selection Overlay -->
-    <div id="language-overlay" class="language-overlay">
-        <div class="language-content">
-            <div class="language-shloka">॥ श्री गणेशाय नमः ॥</div>
-            <div class="language-ornament"></div>
-            <h2 class="language-title">Welcome | स्वागत है</h2>
-            <p class="language-subtitle">Please select your preferred language<br>कृपया अपनी भाषा चुनें</p>
-            <div class="language-buttons">
-                <button class="btn-language" data-lang="en">
-                    <span class="lang-label">English</span>
-                </button>
-                <button class="btn-language" data-lang="hi">
-                    <span class="lang-label">हिंदी</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <header class="hero">
-        <!-- Fireworks canvas -->
-        <div id="fireworks-container"></div>
-
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <div class="shloka gsap-fade">
-                <p class="sanskrit">॥ श्री गणेशाय नमः ॥</p>
-                <p class="mantra">॥ जय बाबा नीम करौली ॥</p>
-            </div>
-
-            <div class="ornament gsap-fade"></div>
-
-            <div class="hero-text gsap-fade">
-                <p class="invite-text" data-i18n="inviteText">You are cordially invited to celebrate</p>
-                <h2 class="anniversary-title gsap-title" data-i18n="anniversaryTitle">25 Years of Togetherness</h2>
-                <p class="subtitle" data-i18n="subtitle">Silver Jubilee Celebration</p>
-            </div>
-
-            <h1 class="couple-names gsap-names">
-                <span class="name" data-text="Manoj">Manoj</span>
-                <span class="ampersand">&</span>
-                <span class="name" data-text="Shalini">Shalini</span>
-            </h1>
-
-            <div class="ornament gsap-fade"></div>
-
-            <p class="hero-note gsap-fade" data-i18n="heroNote">Your presence made this milestone truly memorable</p>
-
-            <!-- Event Completed Badge -->
-            <div class="event-completed gsap-fade">
-                <p class="completed-date" data-i18n="completedDate">Celebrated on 28th January 2026</p>
-            </div>
+            <h1 class="hero-title">Thank You</h1>
+            <p class="hero-subtitle">For celebrating 25 years with us</p>
+            <div class="hero-names">Manoj & Shalini</div>
+            <div class="hero-date">28th January 2026 • Hotel Holiday Inn, Lucknow</div>
         </div>
-    </header>
-
-    <!-- Event Photos Section -->
-    <section class="photos-section scroll-reveal" id="event-photos">
-        <div class="container">
-            <h2 class="section-title" data-i18n="eventPhotos">Event Photos</h2>
-            <p class="gallery-intro" data-i18n="eventPhotosIntro">Moments with family and friends</p>
-            <div class="photo-gallery" id="event-photos-gallery"></div>
-            <div class="gallery-loader" id="event-photos-loader" style="display:none;">
-                <div class="loader-spinner"></div>
-                <p data-i18n="loadingPhotos">Loading photos...</p>
-            </div>
+        <div class="scroll-indicator">
+            <span>View Photos</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
         </div>
     </section>
 
-    <!-- Stage Photos Section -->
-    <section class="photos-section scroll-reveal" id="stage-photos">
+    <!-- EVENT PHOTOS -->
+    <section class="gallery-section" id="event-photos">
         <div class="container">
-            <h2 class="section-title" data-i18n="stagePhotos">Stage Photos</h2>
-            <p class="gallery-intro" data-i18n="stagePhotosIntro">Special moments on stage</p>
-            <div class="photo-gallery" id="stage-photos-gallery"></div>
-            <div class="gallery-loader" id="stage-photos-loader" style="display:none;">
-                <div class="loader-spinner"></div>
-                <p data-i18n="loadingPhotos">Loading photos...</p>
-            </div>
+            <h2 class="gallery-title">Celebration Moments</h2>
+            <div class="masonry-gallery" id="event-photos-gallery"></div>
         </div>
     </section>
 
-    <!-- Event Videos Section -->
-    <section class="videos-section scroll-reveal" id="event-videos">
+    <!-- STAGE PHOTOS -->
+    <section class="gallery-section" id="stage-photos">
         <div class="container">
-            <h2 class="section-title" data-i18n="eventVideos">Event Videos</h2>
-            <p class="gallery-intro" data-i18n="eventVideosIntro">Highlights and reels from the celebration</p>
-            <div class="video-gallery" id="event-videos-gallery"></div>
-            <div class="gallery-loader" id="event-videos-loader" style="display:none;">
-                <div class="loader-spinner"></div>
-                <p data-i18n="loadingVideos">Loading videos...</p>
-            </div>
+            <h2 class="gallery-title">On Stage</h2>
+            <div class="masonry-gallery" id="stage-photos-gallery"></div>
         </div>
     </section>
 
-    <!-- Event Details Section -->
-    <section class="event-section scroll-reveal" id="event">
+    <!-- VIDEOS -->
+    <section class="gallery-section" id="event-videos">
         <div class="container">
-            <h2 class="section-title" data-i18n="eventDetails">Event Memories</h2>
-
-            <div class="event-card">
-                <div class="event-date">
-                    <span class="day" data-i18n="dayWednesday">Wednesday</span>
-                    <span class="date-number">28</span>
-                    <span class="month-year" data-i18n="monthYear">January 2026</span>
-                </div>
-                <div class="event-time">
-                    <span class="time">7:00 PM</span>
-                    <span class="timezone">IST</span>
-                </div>
-
-                <!-- Celebration Summary -->
-                <div class="celebration-summary">
-                    <p class="summary-text" data-i18n="celebrationSummary">An unforgettable evening filled with love, joy, and cherished moments with family and friends.</p>
-                </div>
-            </div>
+            <h2 class="gallery-title">Highlights</h2>
+            <div class="masonry-gallery" id="event-videos-gallery"></div>
         </div>
     </section>
 
-    <!-- Venue Section -->
-    <section class="venue-section scroll-reveal" id="venue">
-        <div class="container">
-            <h2 class="section-title" data-i18n="theVenue">Where We Celebrated</h2>
-
-            <div class="venue-card">
-                <h3 class="venue-name" data-i18n="hotelName">Hotel Holiday Inn</h3>
-                <p class="venue-address" data-i18n-html="venueAddress">
-                    Near Transport Nagar Metro Station<br>
-                    & Amausi Airport, Kanpur Road,<br>
-                    Lucknow, Uttar Pradesh, Bharat - 226008
-                </p>
-
-                <div class="map-container">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.8892!2d80.91567!3d26.7624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd991f32b16b%3A0xc0c5cd9f25ead377!2sHoliday%20Inn%20Lucknow%20Airport%2C%20an%20IHG%20Hotel!5e0!3m2!1sen!2sin!4v1704067200000!5m2!1sen!2sin"
-                        width="100%"
-                        height="300"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-
-                <a href="https://maps.app.goo.gl/LsvJhmVDE4RdnAhK6" target="_blank" rel="noopener noreferrer" class="btn btn-directions">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21.71 11.29l-9-9a.996.996 0 0 0-1.41 0l-9 9a.996.996 0 0 0 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9a.996.996 0 0 0 0-1.41zM14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z"/></svg>
-                    <span data-i18n="getDirections">Get Directions</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Family Section -->
-    <section class="family-section scroll-reveal" id="family">
-        <div class="container">
-            <h2 class="section-title" data-i18n="ourFamily">Our Family</h2>
-
-            <div class="family-card">
-                <div class="sons">
-                    <p class="label" data-i18n="theirSons">Their Sons</p>
-                    <p class="names">Mudit Lal & Vidit Lal</p>
-                </div>
-
-                <div class="ornament-small"></div>
-
-                <div class="well-wishers">
-                    <p class="wishes-intro" data-i18n="warmWishesFrom">With warm wishes from</p>
-                    <p class="wishes-list" data-i18n="wishesList">
-                        Swatantra Bala, Anil Srivastava, Vishwanath Srivastava, Saloni Srivastava, Anupama Srivastava, Sachin Srivastava, Aayush Srivastava, Virat Srivastava, Hardik Srivastava, Gunav Ray, Raghav Ray & all relatives and friends
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-<!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p class="footer-names">Manoj Lal & Shalini Srivastava</p>
-                <p class="footer-event" data-i18n="footerEvent">25th Wedding Anniversary | Silver Jubilee</p>
-                <p class="footer-date" data-i18n="footerDate">Celebrated on 28th January 2026</p>
-                <p class="footer-venue" data-i18n="footerVenue">Hotel Holiday Inn, Lucknow</p>
-            </div>
-            <div class="ornament-small"></div>
-            <p class="copyright" data-i18n="madeWithLove">Made with love by the family</p>
-        </div>
+    <!-- MINIMAL FOOTER -->
+    <footer class="site-footer">
+        <p>Manoj & Shalini • 25 Years • January 2026</p>
     </footer>
 
     <script src="script.js"></script>
