@@ -67,6 +67,9 @@ function createMasonryItem(item, category, container, galleryGroup, isVideo) {
     // Caption for lightbox
     anchor.setAttribute('data-glightbox', `title: ${item.caption}; description: ${item.caption}`);
 
+    // Full resolution URL for download (fallback to full/ if no originals/)
+    anchor.setAttribute('data-full-url', `images/${category}/originals/${item.id}.${fileExt}`);
+
     // Create image element
     const img = document.createElement('img');
     img.src = `images/${category}/thumbnails/${item.id}.${thumbExt}`;
@@ -124,14 +127,136 @@ async function initGalleries() {
         )
     ]);
 
-    // Initialize GLightbox
-    GLightbox({
+    // Initialize GLightbox with download button
+    const lightbox = GLightbox({
         selector: '.glightbox',
         touchNavigation: true,
         loop: true,
         closeButton: true,
         autoplayVideos: false
     });
+
+    // Add download functionality
+    addDownloadButton(lightbox);
+}
+
+// ===========================
+// DOWNLOAD FUNCTIONALITY
+// ===========================
+function addDownloadButton(lightboxInstance) {
+    lightboxInstance.on('slide_changed', ({ current }) => {
+        const slideNode = current.slideNode;
+        if (!slideNode) return;
+
+        // Remove existing download button if any
+        const existingBtn = slideNode.querySelector('.download-btn');
+        if (existingBtn) existingBtn.remove();
+
+        // Get image URLs
+        const trigger = current.trigger;
+        const mediaElement = slideNode.querySelector('img, video');
+        const optimizedUrl = trigger?.href || mediaElement?.src;
+        const fullUrl = trigger?.dataset?.fullUrl || optimizedUrl;
+
+        // Create download button
+        const downloadBtn = document.createElement('button');
+        downloadBtn.className = 'download-btn';
+        downloadBtn.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+            </svg>
+            Download
+        `;
+        downloadBtn.onclick = (e) => {
+            e.stopPropagation();
+            showDownloadModal(optimizedUrl, fullUrl);
+        };
+
+        // Append to slide media container
+        const mediaContainer = slideNode.querySelector('.gslide-media');
+        if (mediaContainer) {
+            mediaContainer.appendChild(downloadBtn);
+        }
+    });
+
+    // Also add button on first slide (slide_changed doesn't fire for first)
+    lightboxInstance.on('open', () => {
+        setTimeout(() => {
+            const slideNode = document.querySelector('.gslide.current');
+            if (slideNode && !slideNode.querySelector('.download-btn')) {
+                const trigger = lightboxInstance.activeSlide?.trigger;
+                const mediaElement = slideNode.querySelector('img, video');
+                const optimizedUrl = trigger?.href || mediaElement?.src;
+                const fullUrl = trigger?.dataset?.fullUrl || optimizedUrl;
+
+                const downloadBtn = document.createElement('button');
+                downloadBtn.className = 'download-btn';
+                downloadBtn.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                    Download
+                `;
+                downloadBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    showDownloadModal(optimizedUrl, fullUrl);
+                };
+
+                const mediaContainer = slideNode.querySelector('.gslide-media');
+                if (mediaContainer) {
+                    mediaContainer.appendChild(downloadBtn);
+                }
+            }
+        }, 100);
+    });
+}
+
+function showDownloadModal(optimizedUrl, fullUrl) {
+    // Remove existing modal if any
+    const existingModal = document.querySelector('.download-modal');
+    if (existingModal) existingModal.remove();
+
+    const modal = document.createElement('div');
+    modal.className = 'download-modal';
+    modal.innerHTML = `
+        <div class="download-modal-content">
+            <h3>Download Photo</h3>
+            <button class="download-option" data-url="${optimizedUrl}">
+                <span class="option-title">Web Optimized</span>
+                <span class="option-desc">Smaller file, faster download</span>
+            </button>
+            <button class="download-option" data-url="${fullUrl}">
+                <span class="option-title">Full Resolution</span>
+                <span class="option-desc">Original quality</span>
+            </button>
+            <button class="download-close">Cancel</button>
+        </div>
+    `;
+    document.body.appendChild(modal);
+
+    // Handle option clicks
+    modal.querySelectorAll('.download-option').forEach(btn => {
+        btn.onclick = () => {
+            downloadFile(btn.dataset.url);
+            modal.remove();
+        };
+    });
+
+    // Handle close
+    modal.querySelector('.download-close').onclick = () => modal.remove();
+    modal.onclick = (e) => {
+        if (e.target === modal) modal.remove();
+    };
+}
+
+function downloadFile(url) {
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = url.split('/').pop();
+    a.target = '_blank';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 }
 
 // ===========================
