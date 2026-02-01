@@ -260,6 +260,53 @@ function downloadFile(url) {
 }
 
 // ===========================
+// COUPLE CAROUSEL
+// ===========================
+async function loadCoupleCarousel() {
+    const carouselTrack = document.getElementById('couple-carousel');
+    if (!carouselTrack) return;
+
+    try {
+        const response = await fetch('images/couple-carousel/captions.json');
+        if (!response.ok) {
+            console.warn('No carousel images found');
+            return;
+        }
+
+        const data = await response.json();
+        const images = data.images;
+
+        if (!images || images.length === 0) {
+            console.warn('No carousel images');
+            return;
+        }
+
+        // Create items twice for seamless infinite scroll
+        const createItems = () => {
+            images.forEach((img) => {
+                const item = document.createElement('div');
+                item.className = 'carousel-item';
+
+                const imgEl = document.createElement('img');
+                imgEl.src = `images/couple-carousel/${img.id}.jpg`;
+                imgEl.alt = img.alt;
+                imgEl.loading = 'lazy';
+
+                item.appendChild(imgEl);
+                carouselTrack.appendChild(item);
+            });
+        };
+
+        // Duplicate for infinite scroll effect
+        createItems();
+        createItems();
+
+    } catch (error) {
+        console.error('Error loading carousel:', error);
+    }
+}
+
+// ===========================
 // SMOOTH SCROLL
 // ===========================
 function initSmoothScroll() {
@@ -278,6 +325,7 @@ function initSmoothScroll() {
 // INITIALIZATION
 // ===========================
 document.addEventListener('DOMContentLoaded', () => {
+    loadCoupleCarousel();
     initGalleries();
     initSmoothScroll();
 });
