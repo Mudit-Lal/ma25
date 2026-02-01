@@ -2,25 +2,13 @@
   "images": [
     {
       "id": "001",
-      "alt": {
-        "en": "Manoj and Shalini on stage",
-        "hi": "मंच पर मनोज और शालिनी"
-      },
-      "caption": {
-        "en": "The silver jubilee couple on stage",
-        "hi": "रजत जयंती युगल मंच पर"
-      }
+      "alt": "Manoj and Shalini on stage",
+      "caption": "The silver jubilee couple on stage"
     },
     {
       "id": "002",
-      "alt": {
-        "en": "Cake cutting ceremony",
-        "hi": "केक काटने की रस्म"
-      },
-      "caption": {
-        "en": "Celebrating 25 years together",
-        "hi": "साथ के 25 वर्ष मना रहे हैं"
-      }
+      "alt": "Cake cutting ceremony",
+      "caption": "Celebrating 25 years together"
     }
   ]
 }

@@ -2,26 +2,14 @@
   "videos": [
     {
       "id": "001",
-      "alt": {
-        "en": "Anniversary celebration reel",
-        "hi": "सालगिरह समारोह रील"
-      },
-      "caption": {
-        "en": "Highlights from the evening",
-        "hi": "शाम की झलकियां"
-      },
+      "alt": "Anniversary celebration reel",
+      "caption": "Highlights from the evening",
       "duration": "00:45"
     },
     {
       "id": "002",
-      "alt": {
-        "en": "Family wishes video",
-        "hi": "पारिवारिक शुभकामनाएं वीडियो"
-      },
-      "caption": {
-        "en": "Heartfelt messages from family",
-        "hi": "परिवार के दिल से संदेश"
-      },
+      "alt": "Family wishes video",
+      "caption": "Heartfelt messages from family",
       "duration": "02:30"
     }
   ]
