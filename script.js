@@ -64,8 +64,8 @@ function createMasonryItem(item, category, container, galleryGroup, isVideo) {
     anchor.className = isVideo ? 'masonry-item video-item glightbox' : 'masonry-item glightbox';
     anchor.setAttribute('data-gallery', galleryGroup);
 
-    // Caption for lightbox
-    anchor.setAttribute('data-glightbox', `title: ${item.caption}; description: ${item.caption}`);
+    // No caption in lightbox
+    anchor.setAttribute('data-glightbox', '');
 
     // Full resolution URL for download (fallback to full/ if no originals/)
     anchor.setAttribute('data-full-url', `images/${category}/originals/${item.id}.${fileExt}`);
@@ -133,7 +133,8 @@ async function initGalleries() {
         touchNavigation: true,
         loop: true,
         closeButton: true,
-        autoplayVideos: false
+        autoplayVideos: false,
+        descPosition: 'none'
     });
 
     // Add download functionality
