@@ -1,14 +1,10 @@
 {
   "images": [
-    {
-      "id": "001",
-      "alt": "Family gathering",
-      "caption": "Friends and family celebrating together"
-    },
-    {
-      "id": "002",
-      "alt": "Group photo",
-      "caption": "Memorable moments with loved ones"
-    }
+    { "id": "001", "alt": "Celebration moment", "caption": "Celebration moment" },
+    { "id": "002", "alt": "Celebration moment", "caption": "Celebration moment" },
+    { "id": "003", "alt": "Celebration moment", "caption": "Celebration moment" },
+    { "id": "004", "alt": "Celebration moment", "caption": "Celebration moment" },
+    { "id": "005", "alt": "Celebration moment", "caption": "Celebration moment" },
+    { "id": "006", "alt": "Celebration moment", "caption": "Celebration moment" }
   ]
 }
