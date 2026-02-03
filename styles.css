@@ -560,6 +560,38 @@ body.homepage {
     transform: translateY(-1px);
 }
 
+/* Hero Credits */
+.hero-credits {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.hero-credit {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.hero-credit a {
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.hero-credit a:hover {
+    color: #D4A84B;
+}
+
+.hero-credit-divider {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+}
+
 @media (max-width: 480px) {
     .hero-nav {
         gap: 1rem;
@@ -573,6 +605,15 @@ body.homepage {
         font-size: 0.95rem;
         width: 100%;
         justify-content: center;
+    }
+
+    .hero-credits {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .hero-credit-divider {
+        display: none;
     }
 }
 
