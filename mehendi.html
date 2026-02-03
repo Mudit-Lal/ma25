@@ -3,36 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manoj & Shalini - 25th Anniversary</title>
+    <title>Mehendi Ceremony - Manoj & Shalini 25th Anniversary</title>
 
     <!-- SEO -->
-    <meta name="description" content="Photo album from Manoj & Shalini's 25th Wedding Anniversary celebration on 28th January 2026">
+    <meta name="description" content="Mehendi ceremony photos from 27th January 2026">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
+    <!-- GLightbox -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/css/glightbox.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js"></script>
+
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="homepage">
-    <!-- HERO SECTION - Full Screen Landing -->
-    <section class="hero-section hero-fullscreen">
-        <div class="hero-slideshow" id="hero-slideshow"></div>
-        <div class="hero-background"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">Thank You</h1>
-            <p class="hero-subtitle">For celebrating 25 years with us</p>
-            <div class="hero-names">Manoj & Shalini</div>
-            <div class="hero-date">28th January 2026 • Hotel Holiday Inn, Lucknow</div>
+<body class="gallery-page">
+    <!-- PAGE HEADER -->
+    <header class="page-header">
+        <a href="index.html" class="back-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+            </svg>
+            Back to Home
+        </a>
+    </header>
 
-            <!-- Navigation Buttons -->
-            <nav class="hero-nav">
-                <a href="mehendi.html" class="nav-btn">Mehendi</a>
-                <a href="events.html" class="nav-btn">Event Photos</a>
-                <a href="stage.html" class="nav-btn">Stage Photos</a>
-            </nav>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <h1 class="page-title">Mehendi Ceremony</h1>
+        <p class="page-subtitle">27th January 2026</p>
+    </section>
+
+    <!-- MEHENDI PHOTOS GALLERY -->
+    <section class="gallery-section" id="mehendi-photos">
+        <div class="container">
+            <div class="masonry-gallery" id="mehendi-gallery"></div>
+            <div class="empty-gallery" id="mehendi-empty">
+                <p>Photos coming soon...</p>
+            </div>
         </div>
     </section>
 
@@ -60,7 +70,7 @@
     <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            initHeroSlideshow();
+            initPageGallery('mehendi', 'mehendi-gallery', 'mehendi-empty');
         });
     </script>
 </body>
