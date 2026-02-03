@@ -16,32 +16,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="homepage">
-    <!-- HERO SECTION - Full Screen Landing -->
-    <section class="hero-section hero-fullscreen">
-        <div class="hero-slideshow" id="hero-slideshow"></div>
-        <div class="hero-background"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">Thank You</h1>
-            <p class="hero-subtitle">For celebrating 25 years with us</p>
-            <div class="hero-names">Manoj & Shalini</div>
-            <div class="hero-date">28th January 2026 • Hotel Holiday Inn, Lucknow</div>
+    <!-- HERO SECTION -->
+    <section class="landing-hero">
+        <div class="royal-bg"></div>
+        <div class="landing-content">
+            <h1 class="landing-title">Thank You</h1>
+            <p class="landing-subtitle">For celebrating 25 years with us</p>
+            <div class="landing-names">Manoj & Shalini</div>
+            <div class="landing-date">28th January 2026 • Hotel Holiday Inn, Lucknow</div>
 
             <!-- Navigation Buttons -->
-            <nav class="hero-nav">
+            <nav class="landing-nav">
                 <a href="mehendi.html" class="nav-btn">Mehendi</a>
                 <a href="events.html" class="nav-btn">Event Photos</a>
                 <a href="stage.html" class="nav-btn">Stage Photos</a>
             </nav>
 
             <!-- Credits -->
-            <div class="hero-credits">
-                <div class="hero-credit">
+            <div class="landing-credits">
+                <div class="landing-credit">
                     <span>Decor by </span>
                     <a href="https://instagram.com/s_g_party_decoration_lucknow" target="_blank" rel="noopener">S G Decorators</a>
                 </div>
-                <span class="hero-credit-divider">•</span>
-                <div class="hero-credit">
+                <span class="landing-credit-divider">•</span>
+                <div class="landing-credit">
                     <span>Photography by </span>
                     <a href="https://instagram.com/arcane.atelier.studio" target="_blank" rel="noopener">Arcane Atelier Studios</a>
                 </div>
@@ -49,11 +47,53 @@
         </div>
     </section>
 
+    <!-- IMAGE CAROUSEL -->
+    <section class="landing-carousel">
+        <div class="carousel-track" id="landing-carousel"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <p>Manoj & Shalini • 25 Years • January 2026</p>
+    </footer>
+
     <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            initHeroSlideshow();
+            loadLandingCarousel();
         });
+
+        async function loadLandingCarousel() {
+            const carouselTrack = document.getElementById('landing-carousel');
+            if (!carouselTrack) return;
+
+            try {
+                const response = await fetch('images/couple-carousel/captions.json');
+                if (!response.ok) return;
+
+                const data = await response.json();
+                const images = data.images;
+                if (!images || images.length === 0) return;
+
+                const createItems = () => {
+                    images.forEach((img) => {
+                        const item = document.createElement('div');
+                        item.className = 'carousel-item';
+                        const imgEl = document.createElement('img');
+                        imgEl.src = `images/couple-carousel/${img.id}.jpg`;
+                        imgEl.alt = img.alt;
+                        imgEl.loading = 'lazy';
+                        item.appendChild(imgEl);
+                        carouselTrack.appendChild(item);
+                    });
+                };
+
+                createItems();
+                createItems();
+            } catch (error) {
+                console.error('Error loading carousel:', error);
+            }
+        }
     </script>
 </body>
 </html>
