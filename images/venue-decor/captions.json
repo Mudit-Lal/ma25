@@ -1,3 +1,79 @@
 {
-  "images": []
+  "images": [
+    {
+      "id": "001",
+      "alt": "Venue decoration",
+      "caption": "Venue decoration"
+    },
+    {
+      "id": "002",
+      "alt": "Venue decoration",
+      "caption": "Venue decoration"
+    },
+    {
+      "id": "003",
+      "alt": "Venue decoration",
+      "caption": "Venue decoration"
+    },
+    {
+      "id": "004",
+      "alt": "Venue decoration",
+      "caption": "Venue decoration"
+    },
+    {
+      "id": "005",
+      "alt": "Venue decoration",
+      "caption": "Venue decoration"
+    },
+    {
+      "id": "006",
+      "alt": "Venue decoration",
+      "caption": "Venue decoration"
+    },
+    {
+      "id": "007",
+      "alt": "Venue decoration",
+      "caption": "Venue decoration"
+    },
+    {
+      "id": "008",
+      "alt": "Venue decoration",
+      "caption": "Venue decoration"
+    },
+    {
+      "id": "009",
+      "alt": "Venue decoration",
+      "caption": "Venue decoration"
+    },
+    {
+      "id": "010",
+      "alt": "Venue decoration",
+      "caption": "Venue decoration"
+    },
+    {
+      "id": "011",
+      "alt": "Venue decoration",
+      "caption": "Venue decoration"
+    },
+    {
+      "id": "012",
+      "alt": "Venue decoration",
+      "caption": "Venue decoration"
+    },
+    {
+      "id": "013",
+      "alt": "Venue decoration",
+      "caption": "Venue decoration"
+    },
+    {
+      "id": "014",
+      "alt": "Venue decoration",
+      "caption": "Venue decoration"
+    },
+    {
+      "id": "015",
+      "alt": "Venue decoration",
+      "caption": "Venue decoration"
+    }
+  ]
 }

@@ -63,17 +63,6 @@
                 </a>
             </div>
             <div class="masonry-gallery" id="decor-gallery"></div>
-            <div class="empty-gallery" id="decor-empty">
-                <p>Photos coming soon...</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- VIDEOS SECTION -->
-    <section class="gallery-section" id="videos">
-        <div class="container">
-            <h2 class="gallery-title">Highlights</h2>
-            <div class="masonry-gallery" id="videos-gallery"></div>
         </div>
     </section>
 
@@ -104,8 +93,7 @@
             // Load all galleries
             await initPageGallery('couple-carousel', 'couple-gallery', null);
             await initPageGallery('event-photos', 'candid-gallery', null);
-            await initPageGallery('venue-decor', 'decor-gallery', 'decor-empty');
-            await initPageGallery('videos', 'videos-gallery', null, true);
+            await initPageGallery('venue-decor', 'decor-gallery', null);
         });
     </script>
 </body>

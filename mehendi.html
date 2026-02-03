@@ -40,9 +40,6 @@
     <section class="gallery-section" id="mehendi-photos">
         <div class="container">
             <div class="masonry-gallery" id="mehendi-gallery"></div>
-            <div class="empty-gallery" id="mehendi-empty">
-                <p>Photos coming soon...</p>
-            </div>
         </div>
     </section>
 
@@ -70,7 +67,7 @@
     <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            initPageGallery('mehendi', 'mehendi-gallery', 'mehendi-empty');
+            initPageGallery('mehendi', 'mehendi-gallery', null);
         });
     </script>
 </body>

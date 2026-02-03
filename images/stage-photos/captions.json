@@ -2,13 +2,403 @@
   "images": [
     {
       "id": "001",
-      "alt": "Manoj and Shalini on stage",
-      "caption": "The silver jubilee couple on stage"
+      "alt": "Stage photo",
+      "caption": "Stage photo"
     },
     {
       "id": "002",
-      "alt": "Cake cutting ceremony",
-      "caption": "Celebrating 25 years together"
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "003",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "004",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "005",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "006",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "007",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "008",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "009",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "010",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "011",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "012",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "013",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "014",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "015",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "016",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "017",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "018",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "019",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "020",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "021",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "022",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "023",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "024",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "025",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "026",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "027",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "028",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "029",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "030",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "031",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "032",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "033",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "034",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "035",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "036",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "037",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "038",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "039",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "040",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "041",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "042",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "043",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "044",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "045",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "046",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "047",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "048",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "049",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "050",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "051",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "052",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "053",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "054",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "055",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "056",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "057",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "058",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "059",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "060",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "061",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "062",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "063",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "064",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "065",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "066",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "067",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "068",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "069",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "070",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "071",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "072",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "073",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "074",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "075",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "076",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "077",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "078",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "079",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
+    },
+    {
+      "id": "080",
+      "alt": "Stage photo",
+      "caption": "Stage photo"
     }
   ]
 }
