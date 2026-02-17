@@ -372,7 +372,7 @@ body {
 }
 
 /* ===========================
-   DOWNLOAD MODAL
+   DOWNLOAD MODAL - SIMPLIFIED
    =========================== */
 .download-modal {
     position: fixed;
@@ -383,6 +383,8 @@ body {
     justify-content: center;
     z-index: 9999999;
     animation: fadeIn 0.2s ease;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 @keyframes fadeIn {
@@ -394,7 +396,7 @@ body {
     background: var(--color-white);
     padding: 2rem;
     border-radius: 16px;
-    max-width: 340px;
+    max-width: 380px;
     width: 90%;
     text-align: center;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
@@ -404,11 +406,11 @@ body {
 @keyframes slideUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(20px) scale(0.95);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
 
@@ -417,45 +419,55 @@ body {
     font-size: 1.5rem;
     font-weight: 500;
     color: var(--color-dark);
+    margin-bottom: 0.75rem;
+}
+
+.download-message {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-gray);
     margin-bottom: 1.5rem;
+    line-height: 1.5;
 }
 
-.download-option {
-    display: block;
+/* Confirm Button - Primary Action */
+.download-confirm {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     width: 100%;
-    padding: 1rem 1.25rem;
-    margin: 0.75rem 0;
-    border: 2px solid #eee;
+    padding: 1rem 1.5rem;
+    margin-bottom: 0.75rem;
+    border: none;
     border-radius: 10px;
-    background: var(--color-white);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-align: left;
-}
-
-.download-option:hover {
-    border-color: var(--color-gold);
-    background: #fffbf5;
-    transform: translateX(4px);
-}
-
-.download-option .option-title {
-    display: block;
+    background: linear-gradient(135deg, var(--color-gold) 0%, #D4A84B 100%);
+    color: var(--color-dark);
     font-family: var(--font-body);
     font-size: 1rem;
-    font-weight: 500;
-    color: var(--color-dark);
-    margin-bottom: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
 }
 
-.download-option .option-desc {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--color-gray);
+.download-confirm:hover {
+    background: linear-gradient(135deg, #D4A84B 0%, var(--color-gold) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4);
 }
 
+.download-confirm:active {
+    transform: translateY(0);
+}
+
+.download-confirm svg {
+    flex-shrink: 0;
+}
+
+/* Cancel Button */
 .download-close {
-    margin-top: 1rem;
+    width: 100%;
     padding: 0.75rem 1.5rem;
     background: none;
     border: none;
@@ -470,18 +482,88 @@ body {
     color: var(--color-dark);
 }
 
-/* Responsive adjustments */
-@media (max-width: 480px) {
+/* Mobile adjustments - prevent overlap with lightbox controls */
+@media (max-width: 768px) {
     .download-btn {
-        bottom: 16px;
+        bottom: 80px; /* Move up to avoid conflict with GLightbox navigation */
         right: 16px;
         padding: 10px 16px;
         font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .download-btn {
+        bottom: 70px;
+        right: 12px;
+        padding: 8px 14px;
+        font-size: 0.8rem;
+        gap: 6px;
+    }
+
+    .download-btn svg {
+        width: 16px;
+        height: 16px;
     }
 
     .download-modal-content {
         padding: 1.5rem;
         margin: 1rem;
+    }
+}
+
+/* ===========================
+   TOAST NOTIFICATIONS
+   =========================== */
+.download-toast {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 1.5rem;
+    background: var(--color-dark);
+    color: var(--color-white);
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 99999999;
+    transition: bottom 0.3s ease;
+    max-width: 90%;
+    text-align: center;
+}
+
+.download-toast.show {
+    bottom: 30px;
+}
+
+/* Toast variants */
+.download-toast-success {
+    background: #10b981;
+    color: white;
+}
+
+.download-toast-error {
+    background: #ef4444;
+    color: white;
+}
+
+.download-toast-info {
+    background: var(--color-dark);
+    color: var(--color-white);
+}
+
+/* Mobile toast adjustments */
+@media (max-width: 480px) {
+    .download-toast {
+        font-size: 0.85rem;
+        padding: 0.875rem 1.25rem;
+        max-width: 85%;
+    }
+
+    .download-toast.show {
+        bottom: 20px;
     }
 }
 

@@ -51,7 +51,6 @@ function createMasonryItem(item, category, container, galleryGroup, isVideo) {
     anchor.className = isVideo ? 'masonry-item video-item glightbox' : 'masonry-item glightbox';
     anchor.setAttribute('data-gallery', galleryGroup);
     anchor.setAttribute('data-glightbox', '');
-    anchor.setAttribute('data-full-url', `images/${category}/originals/${item.id}.${fileExt}`);
 
     const img = document.createElement('img');
     img.src = `images/${category}/thumbnails/${item.id}.${thumbExt}`;
@@ -127,69 +126,68 @@ function initLightbox() {
 // DOWNLOAD FUNCTIONALITY
 // ===========================
 function addDownloadButton(lightboxInstance) {
-    lightboxInstance.on('slide_changed', ({ current }) => {
-        const slideNode = current.slideNode;
-        if (!slideNode) return;
-
+    // Helper function to create and attach download button
+    function createDownloadButton(slideNode, downloadUrl) {
+        // Remove existing button if any
         const existingBtn = slideNode.querySelector('.download-btn');
         if (existingBtn) existingBtn.remove();
 
-        const trigger = current.trigger;
-        const mediaElement = slideNode.querySelector('img, video');
-        const optimizedUrl = trigger?.href || mediaElement?.src;
-        const fullUrl = trigger?.dataset?.fullUrl || optimizedUrl;
+        // Extract filename from URL
+        const filename = downloadUrl.split('/').pop();
 
         const downloadBtn = document.createElement('button');
         downloadBtn.className = 'download-btn';
+        downloadBtn.setAttribute('aria-label', 'Download photo');
         downloadBtn.innerHTML = `
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
             </svg>
             Download
         `;
+
         downloadBtn.onclick = (e) => {
             e.stopPropagation();
-            showDownloadModal(optimizedUrl, fullUrl);
+            showDownloadModal(downloadUrl, filename);
         };
 
         const mediaContainer = slideNode.querySelector('.gslide-media');
         if (mediaContainer) {
             mediaContainer.appendChild(downloadBtn);
         }
+    }
+
+    // Handle slide changes
+    lightboxInstance.on('slide_changed', ({ current }) => {
+        const slideNode = current.slideNode;
+        if (!slideNode) return;
+
+        const trigger = current.trigger;
+        const mediaElement = slideNode.querySelector('img, video');
+        const downloadUrl = trigger?.href || mediaElement?.src;
+
+        if (downloadUrl) {
+            createDownloadButton(slideNode, downloadUrl);
+        }
     });
 
+    // Handle initial open (fallback for edge cases)
     lightboxInstance.on('open', () => {
         setTimeout(() => {
             const slideNode = document.querySelector('.gslide.current');
             if (slideNode && !slideNode.querySelector('.download-btn')) {
                 const trigger = lightboxInstance.activeSlide?.trigger;
                 const mediaElement = slideNode.querySelector('img, video');
-                const optimizedUrl = trigger?.href || mediaElement?.src;
-                const fullUrl = trigger?.dataset?.fullUrl || optimizedUrl;
+                const downloadUrl = trigger?.href || mediaElement?.src;
 
-                const downloadBtn = document.createElement('button');
-                downloadBtn.className = 'download-btn';
-                downloadBtn.innerHTML = `
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                    </svg>
-                    Download
-                `;
-                downloadBtn.onclick = (e) => {
-                    e.stopPropagation();
-                    showDownloadModal(optimizedUrl, fullUrl);
-                };
-
-                const mediaContainer = slideNode.querySelector('.gslide-media');
-                if (mediaContainer) {
-                    mediaContainer.appendChild(downloadBtn);
+                if (downloadUrl) {
+                    createDownloadButton(slideNode, downloadUrl);
                 }
             }
         }, 100);
     });
 }
 
-function showDownloadModal(optimizedUrl, fullUrl) {
+function showDownloadModal(downloadUrl, filename) {
     const existingModal = document.querySelector('.download-modal');
     if (existingModal) existingModal.remove();
 
@@ -198,40 +196,111 @@ function showDownloadModal(optimizedUrl, fullUrl) {
     modal.innerHTML = `
         <div class="download-modal-content">
             <h3>Download Photo</h3>
-            <button class="download-option" data-url="${optimizedUrl}">
-                <span class="option-title">Web Optimized</span>
-                <span class="option-desc">Smaller file, faster download</span>
-            </button>
-            <button class="download-option" data-url="${fullUrl}">
-                <span class="option-title">Full Resolution</span>
-                <span class="option-desc">Original quality</span>
+            <p class="download-message">Ready to download this photo to your device?</p>
+            <button class="download-confirm" data-url="${downloadUrl}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                </svg>
+                <span>Download Photo</span>
             </button>
             <button class="download-close">Cancel</button>
         </div>
     `;
     document.body.appendChild(modal);
 
-    modal.querySelectorAll('.download-option').forEach(btn => {
-        btn.onclick = () => {
-            downloadFile(btn.dataset.url);
-            modal.remove();
-        };
-    });
+    // Download on confirm
+    const confirmBtn = modal.querySelector('.download-confirm');
+    confirmBtn.onclick = () => {
+        downloadFileWithFeedback(downloadUrl, filename);
+        modal.remove();
+    };
 
-    modal.querySelector('.download-close').onclick = () => modal.remove();
+    // Close handlers
+    const closeBtn = modal.querySelector('.download-close');
+    closeBtn.onclick = () => modal.remove();
     modal.onclick = (e) => {
         if (e.target === modal) modal.remove();
     };
+
+    // Keyboard support - ESC to close
+    const handleKeydown = (e) => {
+        if (e.key === 'Escape') {
+            modal.remove();
+            document.removeEventListener('keydown', handleKeydown);
+        }
+    };
+    document.addEventListener('keydown', handleKeydown);
+
+    // Cleanup listener when modal is removed
+    const observer = new MutationObserver((mutations) => {
+        if (!document.body.contains(modal)) {
+            document.removeEventListener('keydown', handleKeydown);
+            observer.disconnect();
+        }
+    });
+    observer.observe(document.body, { childList: true });
 }
 
-function downloadFile(url) {
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = url.split('/').pop();
-    a.target = '_blank';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+async function downloadFileWithFeedback(url, filename) {
+    // Show loading toast
+    showToast('Preparing download...', 'info');
+
+    try {
+        // Validate URL exists before attempting download
+        const response = await fetch(url, { method: 'HEAD' });
+
+        if (!response.ok) {
+            throw new Error(`File not found (${response.status})`);
+        }
+
+        // Create download link
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename || url.split('/').pop();
+        a.target = '_blank';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        // Show success toast
+        showToast('Download started successfully!', 'success');
+
+    } catch (error) {
+        console.error('Download failed:', error);
+
+        // Show error toast with fallback option
+        showToast(
+            'Download failed. Opening photo in new tab instead...',
+            'error',
+            5000
+        );
+
+        // Fallback: Open in new tab so user can right-click save
+        setTimeout(() => {
+            window.open(url, '_blank');
+        }, 1500);
+    }
+}
+
+// Toast notification system
+function showToast(message, type = 'info', duration = 3000) {
+    // Remove existing toast if any
+    const existingToast = document.querySelector('.download-toast');
+    if (existingToast) existingToast.remove();
+
+    const toast = document.createElement('div');
+    toast.className = `download-toast download-toast-${type}`;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+
+    // Trigger animation
+    setTimeout(() => toast.classList.add('show'), 10);
+
+    // Auto-remove after duration
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, duration);
 }
 
 // ===========================
