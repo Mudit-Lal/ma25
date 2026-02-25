@@ -6,7 +6,7 @@
     <title>Manoj & Shalini - 25th Anniversary</title>
 
     <!-- SEO -->
-    <meta name="description" content="Photo album from Manoj & Shalini's 25th Wedding Anniversary celebration on 28th January 2026">
+    <meta name="description" content="Videos from Manoj & Shalini's 25th Wedding Anniversary celebration on 28th January 2026">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,77 +23,88 @@
             <h1 class="landing-title">Thank You</h1>
             <p class="landing-subtitle">For celebrating 25 years with us</p>
             <div class="landing-names">Manoj & Shalini</div>
-            <div class="landing-date">28th January 2026 • Hotel Holiday Inn, Lucknow</div>
+            <div class="landing-date">28th January 2026 &bull; Hotel Holiday Inn, Lucknow</div>
+            <div class="hero-divider"></div>
+        </div>
+    </section>
 
-            <!-- Navigation Buttons -->
-            <nav class="landing-nav">
-                <a href="mehendi.html" class="nav-btn">Mehendi</a>
-                <a href="events.html" class="nav-btn">Event Photos</a>
-                <a href="stage.html" class="nav-btn">Stage Photos</a>
-            </nav>
-
-            <!-- Credits -->
-            <div class="landing-credits">
-                <div class="landing-credit">
-                    <span>Decor by </span>
-                    <a href="https://instagram.com/s_g_party_decoration_lucknow" target="_blank" rel="noopener">S G Decorators</a>
+    <!-- VIDEOS SECTION -->
+    <section class="videos-section">
+        <!-- Featured Video: Event Montage -->
+        <div class="video-block featured">
+            <div class="video-header">
+                <h2 class="video-title">Event Montage</h2>
+                <div class="video-label">
+                    <span class="video-label-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                    </span>
+                    Featured
                 </div>
-                <span class="landing-credit-divider">•</span>
-                <div class="landing-credit">
-                    <span>Photography by </span>
-                    <a href="https://instagram.com/arcane.atelier.studio" target="_blank" rel="noopener">Arcane Atelier Studios</a>
+            </div>
+            <p class="video-description">The best moments from our 25th anniversary celebration</p>
+            <div class="video-wrapper featured-wrapper">
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/qVo1Ld3WMYA?rel=0"
+                    title="Event Montage - 25th Anniversary"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    loading="lazy"
+                ></iframe>
+            </div>
+        </div>
+
+        <!-- Other Videos -->
+        <div class="video-grid">
+            <div class="video-block">
+                <h2 class="video-title">Stage Video</h2>
+                <p class="video-description">Stage ceremony highlights</p>
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/MQ5tT_EYSaY?rel=0"
+                        title="Stage Video - 25th Anniversary"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        loading="lazy"
+                    ></iframe>
+                </div>
+            </div>
+
+            <div class="video-block">
+                <h2 class="video-title">Full Video</h2>
+                <p class="video-description">Complete event recording</p>
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/blPxTBtpz48?rel=0"
+                        title="Full Video - 25th Anniversary"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        loading="lazy"
+                    ></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- IMAGE CAROUSEL -->
-    <section class="landing-carousel">
-        <div class="carousel-track" id="landing-carousel"></div>
-    </section>
-
-    <!-- FOOTER -->
+    <!-- CREDITS + FOOTER -->
     <footer class="site-footer">
-        <p>Manoj & Shalini • 25 Years • January 2026</p>
+        <div class="credits-container">
+            <div class="credit-item">
+                <span class="credit-label">Decor</span>
+                <span class="credit-name">S G Decorators</span>
+                <a class="credit-link" href="https://instagram.com/s_g_party_decoration_lucknow" target="_blank" rel="noopener">@s_g_party_decoration_lucknow</a>
+            </div>
+            <div class="credit-item">
+                <span class="credit-label">Photography & Video</span>
+                <span class="credit-name">Arcane Atelier Studios</span>
+                <a class="credit-link" href="https://instagram.com/arcane.atelier.studio" target="_blank" rel="noopener">@arcane.atelier.studio</a>
+            </div>
+        </div>
+        <p class="footer-tagline">Manoj & Shalini &bull; 25 Years &bull; January 2026</p>
     </footer>
-
-    <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            loadLandingCarousel();
-        });
-
-        async function loadLandingCarousel() {
-            const carouselTrack = document.getElementById('landing-carousel');
-            if (!carouselTrack) return;
-
-            try {
-                const response = await fetch('images/couple-carousel/captions.json');
-                if (!response.ok) return;
-
-                const data = await response.json();
-                const images = data.images;
-                if (!images || images.length === 0) return;
-
-                const createItems = () => {
-                    images.forEach((img) => {
-                        const item = document.createElement('div');
-                        item.className = 'carousel-item';
-                        const imgEl = document.createElement('img');
-                        imgEl.src = `images/couple-carousel/full/${img.id}.jpg`;
-                        imgEl.alt = img.alt;
-                        imgEl.loading = 'lazy';
-                        item.appendChild(imgEl);
-                        carouselTrack.appendChild(item);
-                    });
-                };
-
-                createItems();
-                createItems();
-            } catch (error) {
-                console.error('Error loading carousel:', error);
-            }
-        }
-    </script>
 </body>
 </html>
