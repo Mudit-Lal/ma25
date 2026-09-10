@@ -1,1 +1,18 @@
 node_modules/
+
+# Local photo-processing scratch work. None of this belongs in a PUBLIC repo:
+# the scripts carry hardcoded machine paths (C:\Users\...\Pictures, D:\...),
+# and images/ is ~9.2 GB of family photos across 652 files.
+#
+# The galleries this site once served were removed in favour of YouTube
+# embeds, and the photo blobs have been purged from history. Do not let them
+# back in.
+images/
+copy-selected-photos.js
+create-collage.js
+optimize.js
+event-photos.md
+mehend-photos.md
+stage-photos.md
+package.json
+package-lock.json
